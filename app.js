@@ -1,12 +1,13 @@
 
     window.onload = function(){
-        $('#add-item').modal('show');
+      
     }
     // Fonksiyonlar
     getCategories();
     function getITem(key) { return JSON.parse(localStorage.getItem(key))};
     function setITem(key,value) { localStorage.setItem(key,JSON.stringify(value));}
     function setITem(key,value) { localStorage.setItem(key,JSON.stringify(value));}
+    function delITem(key) { localStorage.removeItem(key);}
     function getId(id){ return document.getElementById(id)}
     function queryS(id){ return document.querySelector(id)}
     function querySA(id){ return document.querySelectorAll(id)}
@@ -45,10 +46,10 @@
         cList.forEach((category,i) => {
             addLinks.innerHTML += 
             `<div class="links">
-            <button id="${i}" data="${category}" oclick="itemList('${category}')" class="s-link">${category}</button>
-            <button id="${i}" data="${category}" oclick="itemList('${category}')" class="s-link">${category}</span>
+            <button id="${i}"  onclick="itemList('${category}')" class="s-link">${category}</button>
+          
             <span class="tasks"><p>Tasks 0</p></span>
-            <span   id="${i}" oclick='deleteCategory("${i}")'  class="trash "><button onclick='deleteCategory("${i}")'><i class="delete-category fa fa-trash-o" aria-hidden="true"></i></button></span>
+            <span  class="trash "><button onclick='deleteCategory("${i}")'><i class="delete-category fa fa-trash-o" aria-hidden="true"></i></button></span>
         </div>`
             
         });
@@ -60,8 +61,10 @@
     function deleteCategory(id) {
                
         const cList = getITem("toDos");
+        const deleted = cList[id];
             cList.splice(id,1);
             setITem("toDos",cList);
+            delITem(deleted)
             getCategories()
            
     };
@@ -72,8 +75,9 @@
     // Add list
 
     function addList() {
-
+       
     const cName = getId("ctgry-name").value
+    if(cName == ""){alert("category name not found") ;   $('#add-item').modal("hide")}
     const todoList = getITem(cName) || [];
     const itemName = getId("item-name").value
     const importance = getId("importance").value
@@ -86,29 +90,83 @@
     const todo = {
         itemName:itemName,
         importance:importance,
-        completed:"false",
+        completed:false,
         color:icolor
         }
         todoList.push(todo)
         setITem(cName,todoList)
 
- const todoListh = getITem(cName)
+    const todoListh = getITem(cName)
             todoListh.forEach(item => {
-               console.log(item.itemName);
+            console.log(item.itemName);
             });
+            getId("item-name").value = "";
+            getId("item-name").focus();
+            cName ? itemList(cName) : "";
+            getId("add-ok").classList.remove("visible")
+            getId("add-ok").innerText= "Added"
+            setTimeout(function(){
+            getId("add-ok").innerText= ""   
+            getId("add-ok").classList.add("visible")
+           }, 2000);
+            
     }
 
     // item list
 
     function itemList(cName) {
 
-        const todoListh = getITem(cName)
-            todoListh.forEach(item => {
-               console.log(item.itemName);
-            });
-
+        getId("add-task").classList.remove("d-none")
+        const todoListh = getITem(cName) || []
+        const itemList = getId("add-list")
+        const categoryName = getId("ctgry-name")
+        itemList.innerHTML = "";
+        todoListh.forEach((item, i) => {
+            const itemName =  item.itemName;
+            const importance = item.importance;
+            const completed = item.completed;
+            let colors = ["color-1","color-1","color-2","color-3"]
+            const color = colors[item.color];
+            console.log(color);
+            let importan = "";
+            importance == "important" ? importan ='<div class="badge badge-danger ml-2">Important</div>' : importan = '';
+            itemList.innerHTML += ` 
+            <li class="list-group-item">
+            <div class="todo-indicator ${color}"></div>
+            <div class="widget-content p-0">
+            <div class="widget-content-wrapper">
+                <div class="widget-content-left mr-2">
+                </div>
+                <div class="widget-content-left">
+                <div class="widget-heading"> ${itemName} ${importan} 
+                </div>
+                </div>
+            <div class="widget-content-right">
+                <input type="checkbox" id='${i}' onclick="completeTask('${i}--${cName}')" class="task-check" ${completed ? "checked" : null}>
+                
+                <button onclick='deleteList("${i}--${cName}")'  class="border-0 btn-transition btn btn-outline-danger">
+                <i class="fa fa-trash"></i>
+                
+                </button>
+            </div>
+            </div>
+            </div>
+        </li> 
+        `
+        });
+        categoryName.value = cName;   // task eklemek için kategori adını formdaki yerine yazdırdık
     }
 
+    // delete list item
+
+    function deleteList(item){
+        
+    }
+
+    // complete task
+    function completeTask(item){
+
+    }
 
 
 

@@ -7,6 +7,7 @@
     --l2: #007bff ;
     --l3: #18ac3a ;
 }
+
 *{
     margin: 0;
     padding: 0;
@@ -38,9 +39,10 @@ i {
 }
 
 nav {
+    min-width:200px;
     max-height:500px;
-   background-color:white;
-   box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
+    background-color:white;
+    box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
     border-width: 0;
     border-radius:5px;
     margin: 0;
@@ -104,12 +106,18 @@ nav .s-link {
 nav .links {
     position: relative;
     height: 80px;
+   
+  }
+nav .links button {
+    border:none;
+    background-color: rgba(0, 0, 0, 0);
   }
 
-nav .links:nth-of-type(even) {
+
+nav .links:nth-of-type(odd) {
     background: var(--third);
   }
-nav .links:nth-of-type(odd) {
+nav .links:nth-of-type(even) {
     background: var(--fourth);
   }
 
@@ -305,4 +313,28 @@ nav span.trash button {
     position: relative;
     display: inline-block;
   
+}
+
+.task-check {
+    position: relative;
+    top:6px
+}
+
+/* radio button color */
+.color-1{
+    background-color: var(--l1);
+}
+.color-2{
+    background-color: var(--l2);
+}
+.color-3{
+    background-color: var(--l3);
+}
+
+.add-ok{
+    display: block;
+    transition: opacity 1s ;
+}
+.visible{
+    opacity: 0;
 }
