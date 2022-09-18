@@ -121,7 +121,8 @@
         getId("add-task").classList.remove("d-none")
         const todoListh = getITem(cName) || []
         getId("task").innerHTML = `<strong>${todoListh.length}</strong>`
-        const itemList = getId("add-list")
+        const itemList = getId("add-list")  ; let say = todoListh.length;
+        if(say == 0){ getId("add-list").innerHTML = `<h2 style="margin:auto">list ${cName} is empty</h2>` }; 
         const categoryName = getId("ctgry-name")
         itemList.innerHTML = "";
         todoListh.forEach((item, i) => {
@@ -141,11 +142,11 @@
                 <div class="widget-content-left mr-2">
                 </div>
                 <div class="widget-content-left">
-                <div class="widget-heading"> ${itemName} ${importan} 
+                <div class="widget-heading ${completed ? "line-through" : null}"> ${itemName} ${importan} 
                 </div>
                 </div>
             <div class="widget-content-right">
-                <input type="checkbox" id='${i}' onclick="completeTask('${i}--${cName}')" class="task-check" ${completed ? "checked" : null}>
+                <input type="checkbox" id='${i}' onclick="completeTask('${i}--${cName}')" class="task-check " ${completed ? "checked" : null}>
                 
                 <button onclick='deleteList("${i}--${cName}")'  class="border-0 btn-transition btn btn-outline-danger">
                 <i class="fa fa-trash"></i>
@@ -163,17 +164,24 @@
     // delete list item
 
     function deleteList(item){
-        
+        const pieces = item.split("--",2);
+        let todo = getITem(pieces[1]);
+        let count = todo.length
+        todo.splice(pieces[0], 1)
+        setITem(pieces[1],todo)
+        itemList(pieces[1])
+        count == 1 ? getId("add-list").innerHTML = `<h2 style="margin:auto">list ${pieces[1]} is empty</h2>` : null   // listede bir eleman kalmışsa sildikten sonnra liste boşalacağından empty ekledik
+        getId("task").innerHTML = `<strong>${count-1}</strong>`
+        getCategories()
     }
 
     // complete task
+
     function completeTask(item){
         const pieces = item.split("--",2);
         let todo = getITem(pieces[1]);
-        console.log(todo[pieces[0]]);
         let last = todo[pieces[0]];
         todo[pieces[0]].completed ? last.completed = false : last.completed = true;  // completed true ise false , false ise true olacak
-        last.completed = true
         todo.splice(pieces[0], 1, last )
         setITem(pieces[1],todo)
         itemList(pieces[1])

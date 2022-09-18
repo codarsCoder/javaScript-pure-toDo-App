@@ -328,6 +328,9 @@ nav span.trash button {
     position: relative;
     top:6px
 }
+.line-through {
+    text-decoration: line-through;
+}
 
 /* radio button color */
 .color-1{
