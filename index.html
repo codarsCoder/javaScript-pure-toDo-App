@@ -29,8 +29,10 @@
                 <div class="col-md-9 list mt-1">
                 <div class="card-hover-shadow-2x mb-3 card">
                     <div class="card-header-tab card-header ">
-                    <div class="card-header-title font-size-lg text-capitalize font-weight-normal"><i
+                    <div class="card-header-title font-size-lg text-capitalize font-weight-normal"><i id="plus-add-item"   data-target="#add-item" data-toggle="modal" class=" fa fa-plus d-none" aria-hidden="true">
+                    </i><i
                         class="fa fa-tasks"></i>&nbsp;Task Lists</div>
+                        <div class="card-header-middle"><span style="font-size: 1.3rem" id="task-name"></span></div>
                         <div class="task d-flex"><i class="fa fa-list-ol" aria-hidden="true"></i> Tasks &nbsp <span id="task"><strong>1000</strong></span></div>
                     </div>
                     <div class="scroll-area-sm">
@@ -99,7 +101,7 @@
                                         </div>
                                         <div class="form-group">
                                           <label  for="item-name" class="col-form-label">Item Name:</label>
-                                          <input type="text" class="form-control" id="item-name" max="100" autofocus >
+                                          <input type="text" class="form-control" id="item-name" max="100" autofocus  autocomplete="off">
                                         </div>
                                         <div class="form-group">
                                             <label for="importance">Importance</label>

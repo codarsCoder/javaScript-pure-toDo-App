@@ -51,7 +51,7 @@
             addLinks.innerHTML += 
             `<div class="links">
             <button id="${i}"  onclick="itemList('${cName}')" class="s-link">${cName}</button>
-          
+            <span class="tasks-num">${i+1}</span>
             <span class="tasks"><p>Tasks ${count}</p></span>
             <span  class="trash "><button onclick='deleteCategory("${i}")'><i class="delete-category fa fa-trash-o" aria-hidden="true"></i></button></span>
         </div>`
@@ -124,6 +124,7 @@
     function itemList(cName) {
 
         getId("add-task").classList.remove("d-none")
+        getId("plus-add-item").classList.remove("d-none")
         const todoListh = getITem(cName) || []
         getId("task").innerHTML = `<strong>${counter(cName) ? counter(cName) : 0}</strong>`
         const itemList = getId("add-list")  ; let say = todoListh.length;
@@ -201,7 +202,7 @@
 
         todos.forEach(todo => {
            
-         count += getITem(todo)   //  Object.keys(getITem(todo)).length;
+         count += getITem(todo).length   //  Object.keys(getITem(todo)).length;
         })
         
         getId("task").innerHTML = `<strong>${count}</strong>`

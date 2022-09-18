@@ -1,11 +1,18 @@
 :root{
     --firs: #0078AA;
     --second: #3AB4F2;
-    --third: #F2DF3A;
-    --fourth: #F6F6F6;
+    --third:  #ADDDD0 ;  /* #F2DF3A;*/
+    --fourth: #87A2FB ;/*#F6F6F6; */
     --l1: #f7b924;
     --l2: #007bff ;
     --l3: #18ac3a ;
+    --shadow :0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
+  --0:#a7d7eb;
+  --1:#bbbbc0;  /* BODY */
+  --2: #ffbe0b;
+  --3:#fb5607;
+  --4:#219ebc;
+}
 }
 
 *{
@@ -25,9 +32,8 @@ body {
     font-size: 0.88rem;
     font-weight: 400;
     line-height: 1.5;
-    color: #495057;
     text-align: left;
-    background-color: #B1B2FF;
+    background-color: var(--1);
 }
 
 i {
@@ -41,7 +47,7 @@ i {
 nav {
     min-width:200px;
     max-height:600px;
-    background-color:white;
+    background-color:var(--0);
     box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
     border-width: 0;
     border-radius: 12px 14px 12px;
@@ -83,19 +89,21 @@ nav .nav-header i:hover{
     color:var(--third)     
 }
 
+
 nav #add-links {
     height: 100%;
     width: 100%;
     overflow-y: auto;
-
+    padding-bottom: 10px;
 }
 
 nav .s-link {
     width: 100%;
     display: block;
     padding: 5px 10px;
-    font-size: 1.5rem;
-    font-weight: 400;
+    font-family: monospace;
+    font-size: 1.2rem;
+    font-weight: 600;
     /* background-color: #3ac47d; */
     left:10px;
     text-align: left;
@@ -106,7 +114,9 @@ nav .s-link {
 nav .links {
     position: relative;
     height: 80px;
-   
+    margin-bottom: 3px;
+    border-bottom: 2px solid red;
+    box-shadow:var(--shadow);
   }
 nav .links button {
     outline: none;
@@ -122,10 +132,10 @@ nav .links button:hover {
 
 
 nav .links:nth-of-type(odd) {
-    background: var(--third);
+    background:var(--2) ; /*var(--third); */
   }
 nav .links:nth-of-type(even) {
-    background: var(--fourth);
+    background:var(--3);
   }
 
 
@@ -136,11 +146,41 @@ nav span.tasks , nav span.trash {
     position: absolute;
 }
 
-nav span.tasks {
-    left:10px;
-    bottom: -10px;
-    font-size: 1rem;
+nav span.tasks-num {
+    position:absolute;
+    right:7px;
+    top:7px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align:center;
+    background-color: var(--4);
+    /* box-shadow:var(--shadow); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
    
+}
+
+nav span.tasks {
+    width: 80px;
+    height: 23px;
+    position: absolute;
+    bottom: -1px;
+    font-size: 0.6rem;
+    font-weight: 400;
+    border-radius: 0px 100px 5px 5px; 
+    background-color: #eb3b4c;
+    color: white;
+    text-align: left;
+    padding-left: 3px;
+
+
+
 }
 
 nav span.tasks p {
@@ -148,15 +188,28 @@ nav span.tasks p {
 }
 
 nav span.trash {
-    right:15px;
-    bottom: 5px;
-    font-size: 1.5rem;
+    right: 7px;
+    bottom: 2px;
+    font-size: 1rem;
     transition: all 0.6s;
+    background-color: var(--4);
+    /* box-shadow: var(--shadow); */
+    border-radius: 50%;
+    width: 28px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+nav span.trash i{
+    color: white;
 }
 
 nav span.trash i:hover {
-    color: red;
-    font-size: 1.7rem;
+    color: white(0, 13, 255);
+    font-size: 1.1rem;
     cursor:pointer;
 }
 nav span.trash button {
@@ -184,8 +237,13 @@ nav span.trash button {
     padding-bottom: 0;
     padding-right: 1rem;
     height: 3.5rem;
-    background-color: #fff;
+    background-color: #0078aa;
+    color: white;
 
+}
+
+#task {
+    margin-top: 1px;
 }
 .widget-subheading{
     color: #858a8e;
@@ -208,6 +266,22 @@ nav span.trash button {
     white-space: nowrap;
 }
 
+#plus-add-item {
+    position: absolute;
+    right: 90px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+#plus-add-item:hover {
+color:var(--l1)
+}
+
+#plus-add-item:active {
+color:var(--l1)
+}
+
 .btn-actions-pane-right {
     margin-left: auto;
     white-space: nowrap;
@@ -220,6 +294,7 @@ nav span.trash button {
 .scroll-area-sm {
     height: 380px;
     overflow-x: hidden;
+    background-color: var(--0);
 }
 
 .list-group-item {
@@ -373,7 +448,7 @@ nav span.trash button {
     }
 
     .scroll-area-sm {
-        height: 506px;
+        height: 547px;
         
     }
     
