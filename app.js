@@ -1,6 +1,5 @@
 
     window.onload = function(){
-        allTasks();
     }
     // Fonksiyonlar
     getCategories();
@@ -30,7 +29,6 @@
             setITem("toDos", newList);
             getId("category-name").value="";
             getId("category-name").focus();
-            console.log(getITem("toDos"));
             getCategories();
         }                  
     })
@@ -45,7 +43,7 @@
 
         cList.forEach((category,i) => {
            
-            let count = getITem(category).length
+            let count = getITem(category).length;
             addLinks.innerHTML += 
             `<div class="links">
             <button id="${i}"  onclick="itemList('${category}')" class="s-link">${category}</button>
@@ -61,7 +59,7 @@
 
   
     function deleteCategory(id) {
-        const warnng = confirm("are you sure you want to delete")
+        const warnng = confirm("are you sure you want to delete?")
         if(warnng) {
         const cList = getITem("toDos");
         const deleted = cList[id];
@@ -81,7 +79,7 @@
     function addList() {
        
     const cName = getId("ctgry-name").value
-    if(cName == ""){alert("category name not found") ;   $('#add-item').modal("hide")}
+    if(cName == ""){alert("category name not found!") ;   $('#add-item').modal("hide")}
     const todoList = getITem(cName) || [];
     const itemName = getId("item-name").value
     const importance = getId("importance").value
@@ -102,7 +100,6 @@
 
     const todoListh = getITem(cName)
             todoListh.forEach(item => {
-            console.log(item.itemName);
             });
             getId("item-name").value = "";
             getId("item-name").focus();
@@ -133,7 +130,6 @@
             const completed = item.completed;
             let colors = ["color-1","color-1","color-2","color-3"]
             const color = colors[item.color];
-            console.log(color);
             let importan = "";
             importance == "important" ? importan ='<div class="badge badge-danger ml-2">Important</div>' : importan = '';
             itemList.innerHTML += ` 
@@ -195,9 +191,10 @@
 
         let todos = getITem("toDos");
         let count = 0;
+        console.log(todos);
 
         todos.forEach(todo => {
-         count += getITem(todo).length
+         count +=  getITem(todo).length
         })
         
         getId("task").innerHTML = `<strong>${count}</strong>`

@@ -378,3 +378,11 @@ nav span.trash button {
     }
     
 }
+
+
+@media screen and (max-width:992px) {
+    #add-links {
+        height: 300px;
+    }
+
+}
