@@ -61,13 +61,15 @@
 
   
     function deleteCategory(id) {
-               
+        const warnng = confirm("are you sure you want to delete")
+        if(warnng) {
         const cList = getITem("toDos");
         const deleted = cList[id];
             cList.splice(id,1);
             setITem("toDos",cList);
             delITem(deleted)
             getCategories()
+        }
            
     };
 
