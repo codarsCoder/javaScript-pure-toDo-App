@@ -40,12 +40,12 @@ i {
 
 nav {
     min-width:200px;
-    max-height:500px;
+    max-height:600px;
     background-color:white;
     box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
     border-width: 0;
-    border-radius:5px;
-    margin: 0;
+    border-radius: 12px 14px 12px;
+    margin-top: 3px;
 
      /* overflow-y: auto;
     overflow-x: hidden; */
@@ -61,20 +61,20 @@ nav .nav-header {
     align-items: center;
     padding: 20px 10px;
     background-color: var(--firs);
-    border-bottom: 3px solid red;
     color:white;
-    font-size: 2rem;
+    font-size: 1.7rem;
     position: relative;
-
+    border-radius: 11px 0px 82px;
 }
 
 nav .nav-header i{
     font-size: 1.5rem;
-    margin-top: 10px;
-    right: 20px;
+    right: 4px;
+    bottom: 0;
     cursor: pointer;
     transition: color 0.6s ,font-size 0.3s; 
     position: absolute; 
+    color:var(--firs)
 }
 nav .nav-header i:hover{
     font-size: 1.7rem;
@@ -109,8 +109,15 @@ nav .links {
    
   }
 nav .links button {
+    outline: none;
     border:none;
     background-color: rgba(0, 0, 0, 0);
+    transition: all 1s;
+  }
+
+nav .links button:hover {
+   
+    background-color: rgba(0, 0, 0, 0.1);
   }
 
 
@@ -171,12 +178,14 @@ nav span.trash button {
 .card-header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     border-bottom-width: 1px;
     padding-top: 0;
     padding-bottom: 0;
-    padding-right: 0.625rem;
+    padding-right: 1rem;
     height: 3.5rem;
     background-color: #fff;
+
 }
 .widget-subheading{
     color: #858a8e;
@@ -337,4 +346,32 @@ nav span.trash button {
 }
 .visible{
     opacity: 0;
+}
+
+.task{
+    /* position: relative;
+    top:10px;
+    right: 10px;
+    width:40px */
+}
+
+.fa-list-ol{
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+@media screen and (min-width:992px) {
+    #add-links {
+        min-height: 650px;
+    }
+
+    .card {
+        height: 600px;
+    }
+
+    .scroll-area-sm {
+        height: 506px;
+        
+    }
+    
 }

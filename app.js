@@ -1,6 +1,6 @@
 
     window.onload = function(){
-      
+        allTasks();
     }
     // Fonksiyonlar
     getCategories();
@@ -44,11 +44,13 @@
         addLinks.innerHTML = "";
 
         cList.forEach((category,i) => {
+           
+            let count = getITem(category).length
             addLinks.innerHTML += 
             `<div class="links">
             <button id="${i}"  onclick="itemList('${category}')" class="s-link">${category}</button>
           
-            <span class="tasks"><p>Tasks 0</p></span>
+            <span class="tasks"><p>Tasks ${count}</p></span>
             <span  class="trash "><button onclick='deleteCategory("${i}")'><i class="delete-category fa fa-trash-o" aria-hidden="true"></i></button></span>
         </div>`
             
@@ -118,6 +120,7 @@
 
         getId("add-task").classList.remove("d-none")
         const todoListh = getITem(cName) || []
+        getId("task").innerHTML = `<strong>${todoListh.length}</strong>`
         const itemList = getId("add-list")
         const categoryName = getId("ctgry-name")
         itemList.innerHTML = "";
@@ -165,9 +168,31 @@
 
     // complete task
     function completeTask(item){
-
+        const pieces = item.split("--",2);
+        let todo = getITem(pieces[1]);
+        console.log(todo[pieces[0]]);
+        let last = todo[pieces[0]];
+        todo[pieces[0]].completed ? last.completed = false : last.completed = true;  // completed true ise false , false ise true olacak
+        last.completed = true
+        todo.splice(pieces[0], 1, last )
+        setITem(pieces[1],todo)
+        itemList(pieces[1])
+       
     }
 
+    // All tasks
+    function allTasks() {
+
+        let todos = getITem("toDos");
+        let count = 0;
+
+        todos.forEach(todo => {
+         count += getITem(todo).length
+        })
+        
+        getId("task").innerHTML = `<strong>${count}</strong>`
+
+    }allTasks();
 
 
 
