@@ -11,10 +11,11 @@
     function queryS(id){ return document.querySelector(id)}
     function querySA(id){ return document.querySelectorAll(id)}
     function noHyphen(str){ let st = str.replaceAll('--', '') ; return st}
-    function counter(key){ return  Array.from(JSON.parse(localStorage.getItem(key))).length  }
+
     // ****CATEGORIES****
 
     // Add category
+
 
     getId("category-add").addEventListener("click",() => {
         
@@ -28,13 +29,47 @@
         }else{
             const newList = [cName, ...cList]                     //const newList = [cName, ...cList];
             setITem("toDos", newList);
-             setITem(cName,[])  // aynı zamanda yeni kategori için  boş bir diziekliyoruz yoksa sayma işlemi yaparken onun karşılığını bulamadığından dolayı hata veriyor 
             getId("category-name").value="";
             getId("category-name").focus();
             getCategories();
         }                  
     })
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // getId("category-add").addEventListener("click",() => {
+        
+    //     const cName =  noHyphen(getId("category-name").value);
+    //     const cList = getITem("toDos") || [];
+        
+    //     if(cList.includes(cName)) {
+    //         alert("This category is already registered!")
+    //         getId("category-name").focus();
+    //     }else{
+    //         const newList = [cName, ...cList]                     //const newList = [cName, ...cList];
+    //         setITem("toDos", newList);
+    //         getId("category-name").value="";
+    //         getId("category-name").focus();
+    //         getCategories();
+    //     }                  
+    // })
 
     // get categories
 
@@ -43,11 +78,12 @@
         const addLinks = getId("add-links");
         const cList = getITem('toDos') ||  []   //JSON.parse(localStorage.getItem('toDos')) // getITem('toDos') || [];
         addLinks.innerHTML = "";
-        for(let i= 0; i<cList.length ; i++) {
-           let cName = cList[i];
-            let count = counter(cName) // getITem(cName)  //  JSON.parse(localStorage.getItem(cName)) 
-            console.log(count , "count tipi")
-          
+            console.log(cList,"clist");
+        cList.forEach((cName,i) => {
+           
+            let count = getITem(cName)  //  JSON.parse(localStorage.getItem(cName)) //  JSON.parse(localStorage.getItem(cName)) 
+           count =  Object.keys(count).length;
+            console.log(typeof count , "count tipi")
             addLinks.innerHTML += 
             `<div class="links">
             <button id="${i}"  onclick="itemList('${cName}')" class="s-link">${cName}</button>
@@ -56,11 +92,11 @@
             <span  class="trash "><button onclick='deleteCategory("${i}")'><i class="delete-category fa fa-trash-o" aria-hidden="true"></i></button></span>
         </div>`
             
-        };
+        });
     }
 
 
-
+    
     // Delete category
 
   
@@ -125,7 +161,7 @@
 
         getId("add-task").classList.remove("d-none")
         const todoListh = getITem(cName) || []
-        getId("task").innerHTML = `<strong>${counter(cName) ? counter(cName) : 0}</strong>`
+        getId("task").innerHTML = `<strong>${todoListh.length}</strong>`
         const itemList = getId("add-list")  ; let say = todoListh.length;
         if(say == 0){ getId("add-list").innerHTML = `<h2 style="margin:auto">list ${cName} is empty</h2>` }; 
         const categoryName = getId("ctgry-name")
