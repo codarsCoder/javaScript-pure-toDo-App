@@ -123,7 +123,7 @@ nav .s-link {
 
 nav .links {
     position: relative;
-    height: 80px;
+    height: 62px;
     margin-bottom: 3px;
     border-bottom: 2px solid red;
     box-shadow:var(--shadow);
@@ -160,8 +160,8 @@ nav span.tasks-num {
     position:absolute;
     right:7px;
     top:7px;
-    width: 26px;
-    height: 26px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     color: white;
     font-size: 0.8rem;
@@ -200,21 +200,21 @@ nav span.tasks p {
 nav span.trash {
     right: 7px;
     bottom: 2px;
-    font-size: 1rem;
+    font-size: 0.8rem;
     transition: all 0.6s;
-    background-color: var(--4);
+    background-color: white;
     /* box-shadow: var(--shadow); */
     border-radius: 50%;
-    width: 28px;
-    height: 26px;
+    width: 20px;
+    height: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: rgb(234, 6, 6);
 }
 
 nav span.trash i{
-    color: white;
+    color: rgb(234, 6, 6);
 }
 
 nav span.trash i:hover {
