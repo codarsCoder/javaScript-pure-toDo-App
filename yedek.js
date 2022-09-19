@@ -2,7 +2,7 @@
     window.onload = function(){
         getCategories();
     }
-    // Fonksiyonlar
+    // Functions
   
     function getITem(key) { return JSON.parse(localStorage.getItem(key))};
     function setITem(key,value) { localStorage.setItem(key,JSON.stringify(value));}
@@ -11,65 +11,36 @@
     function queryS(id){ return document.querySelector(id)}
     function querySA(id){ return document.querySelectorAll(id)}
     function noHyphen(str){ let st = str.replaceAll('--', '') ; return st}
-
+    function counter(key){ return  Array.from(JSON.parse(localStorage.getItem(key))).length  }
+   function message(message){ alert(message) }
+   
     // ****CATEGORIES****
 
     // Add category
 
-
     getId("category-add").addEventListener("click",() => {
         
-        const cName =  noHyphen(getId("category-name").value);
-        console.log(cName);
-        const cList = getITem("toDos") || [];
-        
-        if(cList.includes(cName)) {
-            alert("This category is already registered!")
-            getId("category-name").focus();
-        }else{
-            const newList = [cName, ...cList]                     //const newList = [cName, ...cList];
-            setITem("toDos", newList);
-            getId("category-name").value="";
-            getId("category-name").focus();
-            getCategories();
-        }                  
+        const cName =  noHyphen(getId("category-name").value.toUpperCase());
+        if(cName.length > 14) {  
+            message("max 14 character!") 
+        } else {
+            console.log(cName);
+            const cList = getITem("toDos") || [];
+            
+            if(cList.includes(cName)) {
+                alert("This category is already registered!")
+                getId("category-name").focus();
+            }else{
+                const newList = [cName, ...cList]                     //const newList = [cName, ...cList];
+                setITem("toDos", newList);
+                setITem(cName,[])  // aynı zamanda yeni kategori için  boş bir diziekliyoruz yoksa sayma işlemi yaparken onun karşılığını bulamadığından dolayı hata veriyor 
+                getId("category-name").value="";
+                getId("category-name").focus();
+                getCategories();
+            }
+        }                      
     })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // getId("category-add").addEventListener("click",() => {
-        
-    //     const cName =  noHyphen(getId("category-name").value);
-    //     const cList = getITem("toDos") || [];
-        
-    //     if(cList.includes(cName)) {
-    //         alert("This category is already registered!")
-    //         getId("category-name").focus();
-    //     }else{
-    //         const newList = [cName, ...cList]                     //const newList = [cName, ...cList];
-    //         setITem("toDos", newList);
-    //         getId("category-name").value="";
-    //         getId("category-name").focus();
-    //         getCategories();
-    //     }                  
-    // })
 
     // get categories
 
@@ -78,25 +49,24 @@
         const addLinks = getId("add-links");
         const cList = getITem('toDos') ||  []   //JSON.parse(localStorage.getItem('toDos')) // getITem('toDos') || [];
         addLinks.innerHTML = "";
-            console.log(cList,"clist");
-        cList.forEach((cName,i) => {
-           
-            let count = getITem(cName)  //  JSON.parse(localStorage.getItem(cName)) //  JSON.parse(localStorage.getItem(cName)) 
-           count =  Object.keys(count).length;
-            console.log(typeof count , "count tipi")
+        for(let i= 0; i<cList.length ; i++) {
+           let cName = cList[i];
+            let count = counter(cName) // getITem(cName)  //  JSON.parse(localStorage.getItem(cName)) 
+            console.log(count , "count tipi")
+          
             addLinks.innerHTML += 
             `<div class="links">
             <button id="${i}"  onclick="itemList('${cName}')" class="s-link">${cName}</button>
-          
+            <span class="tasks-num">${i+1}</span>
             <span class="tasks"><p>Tasks ${count}</p></span>
-            <span  class="trash "><button onclick='deleteCategory("${i}")'><i class="delete-category fa fa-trash-o" aria-hidden="true"></i></button></span>
+            <span  class="trash "><button onclick='deleteCategory("${i}")'><i class="delete-category fas fa-trash-alt" aria-hidden="true"></i></button></span>
         </div>`
             
-        });
+        };
     }
 
 
-    
+
     // Delete category
 
   
@@ -109,6 +79,7 @@
             setITem("toDos",cList);
             delITem(deleted)
             getCategories()
+            allTasks()
         }
            
     };
@@ -137,7 +108,7 @@
         completed:false,
         color:icolor
         }
-        todoList.unShift(todo)
+        todoList.unshift(todo)
         setITem(cName,todoList)
 
     const todoListh = getITem(cName)
@@ -152,7 +123,6 @@
             getId("add-ok").innerText= ""   
             getId("add-ok").classList.add("visible")
            }, 2000);
-           getCategories()
             
     }
 
@@ -161,8 +131,10 @@
     function itemList(cName) {
 
         getId("add-task").classList.remove("d-none")
+        getId("plus-add-item").classList.remove("d-none")
+        getId("task-name").innerText= cName
         const todoListh = getITem(cName) || []
-        getId("task").innerHTML = `<strong>${todoListh.length}</strong>`
+        getId("task").innerHTML = `<strong>${counter(cName) ? counter(cName) : 0}</strong>`
         const itemList = getId("add-list")  ; let say = todoListh.length;
         if(say == 0){ getId("add-list").innerHTML = `<h2 style="margin:auto">list ${cName} is empty</h2>` }; 
         const categoryName = getId("ctgry-name")
@@ -200,6 +172,7 @@
         `
         });
         categoryName.value = cName;   // task eklemek için kategori adını formdaki yerine yazdırdık
+
     }
 
     // delete list item
@@ -238,23 +211,44 @@
 
         todos.forEach(todo => {
            
-         count += getITem(todo)   //  Object.keys(getITem(todo)).length;
+         count += getITem(todo).length   //  Object.keys(getITem(todo)).length;
         })
         
         getId("task").innerHTML = `<strong>${count}</strong>`
 
     }allTasks();
 
+    function saveJson() {
+         
+        let saveObj = [];
+        let todos = getITem("toDos") || [];
+        let count = 0;
+        todos.forEach(todo => { 
+            let todoValue =  getITem(todo) ;
+            let todoPack = [];
+            todoPack = [todo, ...todoValue];
+            saveObj.unshift(todoPack)
+        })
+        
+        // file setting
+        const text = JSON.stringify(saveObj);
+        const name = "toDo.json";
+        const type = "text/plain";
+    
+        // create file
+        const a = document.createElement("a");
+        const file = new Blob([text], { type: type });
+        a.href = URL.createObjectURL(file);
+        a.download = name;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+    }
+ 
 
-
-
-
-
-
-
-
-
-
+     $('.modal').on('shown.bs.modal', function() {
+         $(this).find('[autofocus]').focus();
+     });    
 
 
 
@@ -295,31 +289,5 @@
 
 
 
-
-
-// function Setup(name,toDo,bol){
-//   const list = getITem("toDos") || [];
-  
-//   const todo = {
-//     name:name,
-//     todos:toDo,
-//     bol:bol
-//   }
-//   list.push(todo)
-//    setITem("toDos",list)
-//   }
-// function geT(name){
-//    const list = getITem("toDos") || [];
-//   let liste = Array.from(list)
-//   console.log(liste[0].name)
-//   console.log(liste[0].todos)
-//   console.log(liste[0].bol)
-  
-// }
-// Setup("ali","ödev",false)
-//  geT("ali")
-
 //     // modal auto focus
-    // $('.modal').on('shown.bs.modal', function() {
-    //     $(this).find('[autofocus]').focus();
-    //     });       
+     

@@ -1,6 +1,6 @@
 
     window.onload = function(){
-        getCategories();
+      
     }
     // Functions
   
@@ -24,7 +24,6 @@
         if(cName.length > 14) {  
             message("max 14 character!") 
         } else {
-            console.log(cName);
             const cList = getITem("toDos") || [];
             
             if(cList.includes(cName)) {
@@ -52,7 +51,7 @@
         for(let i= 0; i<cList.length ; i++) {
            let cName = cList[i];
             let count = counter(cName) // getITem(cName)  //  JSON.parse(localStorage.getItem(cName)) 
-            console.log(count , "count tipi")
+        
           
             addLinks.innerHTML += 
             `<div class="links">
@@ -216,7 +215,7 @@
         
         getId("task").innerHTML = `<strong>${count}</strong>`
 
-    }allTasks();
+    }
 
     function saveJson() {
          
@@ -244,6 +243,34 @@
         a.click();
         a.remove();
     }
+   
+    function getUploadJson(){
+        $("#json-yukle").modal("show");
+        $("#options").modal("hide");
+    }
+
+    function upLoadJson() {
+        let jsons =  JSON.parse(getId("addjson").value); 
+        jsons.forEach(items => {
+
+         let [ , ...lists] = items;  
+         let oldLists = getITem(items[0]) || []
+         let  newLists =  [...oldLists, ...lists];  
+         setITem(items[0], newLists);  
+         let newTasks
+         let OldTasks = getITem("toDos") || []; // todos var mı getir yoksa boş dizi ver
+         if(!OldTasks.includes(items[0])){
+            newTasks = [...OldTasks,items[0]]; setITem("toDos", newTasks) ; 
+           
+         }  
+
+        })     
+        getCategories();
+        allTasks();
+        $("#json-yukle").modal("hide");
+      }
+    
+        
  
 
      $('.modal').on('shown.bs.modal', function() {
@@ -253,8 +280,9 @@
 
 
 
-
-
+// BU FONKSİYONLAR SAYFADAKİ TÜM İŞLEMLER BİTTİKTEN SONRA ÇALIŞMASI GEREKİR
+     getCategories();
+     allTasks();
 
 
 
