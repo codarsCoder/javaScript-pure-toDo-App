@@ -163,14 +163,10 @@ function sortItem(cName) {
   });
   let sortedList = [...tek, ...cift];
   console.log(sortedList);
-  listOfIndex(sortedList);
-}
-function listOfIndex(sortedList) {
-  //  listeyi bizim verdiğimiz index sırasına göre  listeler
 
   let itemList = getId("add-list");
   itemList.innerHTML = "";
-  let cName = getId("task-name").innerText;
+ 
   const todoList = getITem(cName) || [];
   sortedList.forEach((item) => {
     const itemName = todoList[item].itemName;

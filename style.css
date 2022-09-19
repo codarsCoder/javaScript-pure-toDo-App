@@ -52,9 +52,8 @@ nav {
     border-width: 0;
     border-radius: 12px 14px 12px;
     margin-top: 3px;
-
-     /* overflow-y: auto;
-    overflow-x: hidden; */
+     overflow-y: auto;
+    overflow-x: hidden;
      
 }
 
@@ -66,6 +65,7 @@ nav .nav-header {
     justify-content: space-between;
     align-items: center;
     padding: 20px 10px;
+    margin-bottom: 2px;
     background-color: var(--firs);
     color:white;
     font-size: 1.7rem;
@@ -453,7 +453,12 @@ color:var(--l1)
 
 .add-ok{
     display: block;
-    transition: opacity 1s ;
+    transition: all 1s ;
+    position: absolute;
+    right: 50px;
+    top: 20px;
+    font-weight: 700
+};
 }
 .visible{
     opacity: 0;
@@ -473,7 +478,7 @@ color:var(--l1)
 
 @media screen and (min-width:992px) {
     #add-links {
-        min-height: 650px;
+        min-height: 500px;
     }
 
     .card {
