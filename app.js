@@ -147,7 +147,7 @@
             let importan = "";
             importance == "important" ? importan ='<div class="badge badge-danger ml-2">Important</div>' : importan = '';
             itemList.innerHTML += ` 
-            <li class="list-group-item">
+            <li id="${completed ? 2 : 1}" class="list-group-item">
             <div class="todo-indicator ${color}"></div>
             <div class="widget-content p-0">
             <div class="widget-content-wrapper">
@@ -171,8 +171,15 @@
         `
         });
         categoryName.value = cName;   // task eklemek için kategori adını formdaki yerine yazdırdık
-
+        sortItem()
     }
+
+                // shorting tasks
+
+        function sortItem(){
+         let list =  querySA(".list-group-item"); console.log(list);
+         list.sort((a,b) => a[0].id - b[0].id)
+        }
 
     // delete list item
 
@@ -267,6 +274,7 @@
         })     
         getCategories();
         allTasks();
+        getId("addjson").value = "";
         $("#json-yukle").modal("hide");
       }
     

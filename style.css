@@ -493,6 +493,7 @@ color:var(--l1)
 }
 .options i:hover {
     font-size: 1.5rem;
+    color: var(--firs);
 }
 
 .z-index-4 {

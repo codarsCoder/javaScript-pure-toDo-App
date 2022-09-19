@@ -171,15 +171,15 @@
                 </div>
                 <div class="modal-body">
                   <div class="options d-flex justify-content-start">
-                   <i class="fas fa-upload m-2" onclick="getUploadJson()" title="Upload saved json"></i>
-                    <i class="fa fa-save m-2"  onclick="saveJson()"  title="Save tasks as json"></i>
+                   <div class="text-center m-3"><i class="fas fa-upload m-2 d-block" onclick="getUploadJson()" title="Upload saved json"></i><label for="">Upload</label></div>
+                   <div class="text-center m-3"><i class="fa fa-save m-2 d-block"  onclick="saveJson()"  title="Save tasks as json"></i>
+                    <label for="">Save</label></div>
+                    
 
 
                   </div>
                   <form>
-                    <div class="form-group">
-                      <textarea class="form-control"  onclick="addJson()"" id="addjson" placeholder="Paste the saved json file content" required></textarea>
-                    </div>
+                   
                 
                   </form>
                 </div>
