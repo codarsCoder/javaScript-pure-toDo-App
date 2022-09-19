@@ -137,7 +137,7 @@
         completed:false,
         color:icolor
         }
-        todoList.push(todo)
+        todoList.unShift(todo)
         setITem(cName,todoList)
 
     const todoListh = getITem(cName)
@@ -152,6 +152,7 @@
             getId("add-ok").innerText= ""   
             getId("add-ok").classList.add("visible")
            }, 2000);
+           getCategories()
             
     }
 
