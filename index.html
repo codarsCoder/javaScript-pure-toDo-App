@@ -12,12 +12,13 @@
     <title>Document</title>
 </head>
 <body> 
-    <div class="continer d-flex justify-content-center container">
+    <div class="continer d-flex justify-content-center container main-container">
             <div class="row d-flex justify-content-center container">
-                <div class="col-md-3">
+                <div class="col-7 col-md-4 col-lg-3 nav-container ">
                     <nav class="nav">
-                        <div class="nav-header">Categories
-                            <i id="categori-add"  data-target="#exampleModal" data-toggle="modal" class=" fa fa-plus" aria-hidden="true">
+                        <div class="nav-header ">Categories
+                          <i class="fas fa-cog opt text-white" data-target="#options" data-toggle="modal"></i>
+                            <i id="categori-add"  data-target="#exampleModal" data-toggle="modal" class=" fa fa-plus " aria-hidden="true">
                                 </i>
                         </div>
                         <div id="add-links">
@@ -26,14 +27,14 @@
                         </div>
                     </nav>
                 </div>
-                <div class="col-md-9 list mt-1">
+                <div class="card-container col-md-8 col-lg-9 list mt-1">
                 <div class="card-hover-shadow-2x mb-3 card">
-                    <div class="card-header-tab card-header ">
-                    <div class="card-header-title font-size-lg text-capitalize font-weight-normal"><i id="plus-add-item"   data-target="#add-item" data-toggle="modal" class=" fa fa-plus d-none" aria-hidden="true">
-                    </i><i
-                        class="fa fa-tasks"  data-target="#json-yukle" data-toggle="modal"></i>&nbsp;Task Lists</div>
+                    <div class="card-header-tab card-header d-flex justify-content-between align-items-center ">
+                    <div class="card-header-title font-size-lg text-capitalize font-weight-normal d-flex align-items-center "><i
+                        class="fa fa-tasks" ></i>&nbsp;Task Lists</div>
                         <div class="card-header-middle"><span style="font-size: 1.3rem" id="task-name"></span></div>
-                        <div class="task d-flex"><i class="fa fa-list-ol" onclick="saveJson()" aria-hidden="true"></i> Tasks &nbsp <span id="task"><strong>1000</strong></span></div>
+                        <div class="task d-flex align-items-center"><i id="plus-add-item"   data-target="#add-item" data-toggle="modal" class=" fa fa-plus d-none m-2" aria-hidden="true">
+                    </i><i class="fa fa-list-ol m-2" aria-hidden="true"></i> All tasks &nbsp <span class="m-2" id="task"><strong>1000</strong></span></div>
                     </div>
                     <div class="scroll-area-sm">
                     <perfect-scrollbar class="ps-show-limits">
@@ -56,7 +57,7 @@
       
           </div>
                     <!-- jSON kayıt ekle modal -->
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade z-index-4" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -156,6 +157,38 @@
                                   </div>
                                 </div>
                               </div>
+          
+                              <!-- Ayarlar modal -->
+           <div class="modal fade z-index-3" id="options" tabindex="-1" role="dialog" aria-labelledby="optionsLabell" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="optionsLabell">Options</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="options d-flex justify-content-start">
+                   <i class="fas fa-upload m-2" data-target="#json-yukle" data-toggle="modal" title="Upload saved json"></i>
+                    <i class="fa fa-save m-2"  onclick="saveJson()"  title="Save tasks as json"></i>
+
+
+                  </div>
+                  <form>
+                    <div class="form-group">
+                      <textarea class="form-control"  onclick="addJson()"" id="addjson" placeholder="Paste the saved json file content" required></textarea>
+                    </div>
+                
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button id="category-add" type="button" class="btn btn-primary">Add</button>
+                </div>
+              </div>
+            </div>
+          </div>                    
   
 
           <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
