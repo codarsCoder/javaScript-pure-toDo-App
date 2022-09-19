@@ -1,4 +1,6 @@
-window.onload = function () {};
+window.onload = function () {// BU FONKSİYONLAR SAYFADAKİ TÜM İŞLEMLER BİTTİKTEN SONRA ÇALIŞMASI GEREKİR
+  getCategories();
+  allTasks();};
 // Functions
 
 function getITem(key) {
@@ -311,27 +313,3 @@ $(".modal").on("shown.bs.modal", function () {
   $(this).find("[autofocus]").focus();
 });
 
-// BU FONKSİYONLAR SAYFADAKİ TÜM İŞLEMLER BİTTİKTEN SONRA ÇALIŞMASI GEREKİR
-getCategories();
-allTasks();
-
-// const allCategoty = querySA(".delete-category");
-
-// for(let i = 0; i < allCategoty.length; i++){
-
-// }
-
-// querySA(".delete-category").forEach((category) => {
-
-//     category.addEventListener("click", () => {
-
-//         let id =  category.getAttribute("id");
-//             const cList = getITem("toDos");
-//             cList.splice(id,1);
-//             setITem("toDos",cList);
-//             getCategories()
-
-//         });
-// });
-
-//     // modal auto focus

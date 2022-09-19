@@ -1,21 +1,24 @@
-:root{
+:root {
     --firs: #0078AA;
     --second: #3AB4F2;
-    --third:  #ADDDD0 ;  /* #F2DF3A;*/
-    --fourth: #87A2FB ;/*#F6F6F6; */
+    --third: #ADDDD0;
+    /* #F2DF3A;*/
+    --fourth: #87A2FB;
+    /*#F6F6F6; */
     --l1: #f7b924;
-    --l2: #007bff ;
-    --l3: #18ac3a ;
-    --shadow :0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
-  --0:#a7d7eb;
-  --1:#bbbbc0;  /* BODY */
-  --2: #ffbe0b;
-  --3:#fb5607;
-  --4:#219ebc;
+    --l2: #007bff;
+    --l3: #18ac3a;
+    --shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
+    --0: #a7d7eb;
+    --1: #bbbbc0;
+    /* BODY */
+    --2: #ffbe0b;
+    --3: #fb5607;
+    --4: #219ebc;
 }
 
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: 0;
@@ -24,8 +27,9 @@
 }
 
 a {
-    color:#495057;
+    color: #495057;
 }
+
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -42,19 +46,20 @@ i {
 }
 
 .container {
-    margin-top:20px;
+    margin-top: 20px;
 }
 
 nav {
-    max-height:600px;
-    background-color:var(--0);
+    height: 600px;
+    background-color: var(--0);
     box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
     border-width: 0;
     border-radius: 12px 14px 12px;
     margin-top: 3px;
-     overflow-y: auto;
+    overflow-y: auto;
     overflow-x: hidden;
-     
+    display: block !important;
+
 }
 
 
@@ -67,44 +72,47 @@ nav .nav-header {
     padding: 20px 10px;
     margin-bottom: 2px;
     background-color: var(--firs);
-    color:white;
+    color: white;
     font-size: 1.7rem;
     position: relative;
     border-radius: 11px 0px 82px;
 }
 
-nav .nav-header .fa-plus{
+nav .nav-header .fa-plus {
     font-size: 1.5rem;
     right: 4px;
     bottom: 2px;
     cursor: pointer;
-    transition: color 0.6s ,font-size 0.3s; 
-    position: absolute; 
-    color:var(--firs)
+    transition: color 0.6s, font-size 0.3s;
+    position: absolute;
+    color: var(--firs)
 }
-nav .nav-header .fa-plus:hover{
+
+nav .nav-header .fa-plus:hover {
     font-size: 1.7rem;
     margin-top: 15px;
-    cursor: pointer; 
-    color:var(--3)     
+    cursor: pointer;
+    color: var(--3)
 }
- .opt{ /* i setting*/
+
+.opt {
+    /* i setting*/
     position: absolute !important;
     left: 6px;
     top: 6px;
     font-size: 1rem !important;
     transition: all 0.5s;
- }
- .opt:hover{   
-    
+}
+
+.opt:hover {
+
     font-size: 1.2rem !important;
- }
+}
 
 nav #add-links {
-    height: 100%;
     width: 100%;
     overflow-y: auto;
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
 }
 
 nav .s-link {
@@ -115,10 +123,10 @@ nav .s-link {
     font-size: 1.2rem;
     font-weight: 600;
     /* background-color: #3ac47d; */
-    left:10px;
+    left: 10px;
     text-align: left;
-    cursor:pointer;
-   
+    cursor: pointer;
+
 }
 
 nav .links {
@@ -126,54 +134,57 @@ nav .links {
     height: 62px;
     margin-bottom: 3px;
     border-bottom: 2px solid red;
-    box-shadow:var(--shadow);
-  }
+    box-shadow: var(--shadow);
+}
+
 nav .links button {
     outline: none;
-    border:none;
+    border: none;
     background-color: rgba(0, 0, 0, 0);
     transition: all 1s;
-  }
+}
 
 nav .links button:hover {
-   
+
     background-color: rgba(0, 0, 0, 0.1);
-  }
+}
 
 
 nav .links:nth-of-type(odd) {
-    background:var(--2) ; /*var(--third); */
-  }
-nav .links:nth-of-type(even) {
-    background:var(--3);
-  }
-
-
-.list {
-   
+    background: var(--2);
+    /*var(--third); */
 }
-nav span.tasks , nav span.trash {
+
+nav .links:nth-of-type(even) {
+    background: var(--3);
+}
+
+
+.list {}
+
+nav span.tasks,
+nav span.trash {
     position: absolute;
 }
 
 nav span.tasks-num {
-    position:absolute;
-    right:7px;
-    top:7px;
+    position: absolute;
+    right: 7px;
+    top: 7px;
     width: 20px;
     height: 20px;
     border-radius: 50%;
     color: white;
     font-size: 0.8rem;
     font-weight: 600;
-    text-align:center;
+    text-align: center;
     background-color: var(--4);
     /* box-shadow:var(--shadow); */
     display: flex;
     align-items: center;
     justify-content: center;
 
-   
+
 }
 
 nav span.tasks {
@@ -183,7 +194,7 @@ nav span.tasks {
     bottom: -1px;
     font-size: 0.6rem;
     font-weight: 400;
-    border-radius: 0px 100px 5px 5px; 
+    border-radius: 0px 100px 5px 5px;
     background-color: #eb3b4c;
     color: white;
     text-align: left;
@@ -213,19 +224,20 @@ nav span.trash {
     color: rgb(234, 6, 6);
 }
 
-nav span.trash i{
+nav span.trash i {
     color: rgb(234, 6, 6);
 }
 
 nav span.trash i:hover {
     color: white(0, 13, 255);
     font-size: 1.1rem;
-    cursor:pointer;
+    cursor: pointer;
 }
+
 nav span.trash button {
-   border: none !important;
-   outline: none !important;
-   background-color: rgba(0, 0, 0, 0);
+    border: none !important;
+    outline: none !important;
+    background-color: rgba(0, 0, 0, 0);
 }
 
 .card {
@@ -255,11 +267,11 @@ nav span.trash button {
 .card-header i {
     cursor: pointer;
     transition: all 0.5s;
-    
+
 }
 
 .card-header i:hover {
-    color:var(--3);
+    color: var(--3);
     font-size: 1.2rem;
 }
 
@@ -278,10 +290,11 @@ nav span.trash button {
 /* #task {
     margin-top: 1px;
 } */
-.widget-subheading{
+.widget-subheading {
     color: #858a8e;
     font-size: 10px;
 }
+
 .card-header.card-header-tab .card-header-title {
     display: flex;
     align-items: center;
@@ -308,11 +321,11 @@ nav span.trash button {
 }
 
 #plus-add-item:hover {
-color:var(--l1)
+    color: var(--l1)
 }
 
 #plus-add-item:active {
-color:var(--l1)
+    color: var(--l1)
 }
 
 .btn-actions-pane-right {
@@ -409,77 +422,85 @@ color:var(--l1)
     background-color: #3ac47d;
     border-color: #3ac47d;
 }
+
 .btn-primary {
     color: #fff;
     background-color: #3f6ad8;
     border-color: #3f6ad8;
 }
-.btn { 
+
+.btn {
     position: relative;
     transition: color 0.15s, background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
     outline: none !important;
 }
 
-.card-footer{
+.card-footer {
     background-color: #fff;
 }
 
 .check {
     width: 29px;
-   margin-left:3px;
+    margin-left: 3px;
     position: relative;
     display: inline-block;
-  
+
 }
 
 .task-check {
     position: relative;
-    top:6px
+    top: 6px
 }
+
 .line-through {
     text-decoration: line-through;
 }
 
 /* radio button color */
-.color-1{
+.color-1 {
     background-color: var(--l1);
 }
-.color-2{
+
+.color-2 {
     background-color: var(--l2);
 }
-.color-3{
+
+.color-3 {
     background-color: var(--l3);
 }
 
-.add-ok{
+.add-ok {
     display: block;
-    transition: all 1s ;
+    transition: all 1s;
     position: absolute;
     right: 50px;
     top: 20px;
     font-weight: 700
-};
 }
-.visible{
+
+;
+}
+
+.visible {
     opacity: 0;
 }
 
-.task{
+.task {
     /* position: relative;
     top:10px;
     right: 10px;
     width:40px */
 }
 
-.fa-list-ol{
+.fa-list-ol {
     margin-top: 5px;
     margin-right: 5px;
 }
 
 @media screen and (min-width:992px) {
-    #add-links {
+    /* #add-links {
         min-height: 500px;
-    }
+    } */
 
     .card {
         height: 600px;
@@ -487,15 +508,16 @@ color:var(--l1)
 
     .scroll-area-sm {
         height: 547px;
-        
+
     }
-    
+
 }
 
-.options i{
+.options i {
     font-size: 1.3rem;
     transition: all 0.5s;
 }
+
 .options i:hover {
     font-size: 1.5rem;
     color: var(--firs);
@@ -508,37 +530,55 @@ color:var(--l1)
 .z-index-3 {
     z-index: 90000 !important;
 }
+
 @media screen and (max-width:992px) {
     #add-links {
         height: 300px;
     }
-
+    nav{
+        height:100%;
+        max-height: 400px;
+    }
 }
+
 @media screen and (max-width:600px) {
     main-container {
-       width: 600px;
+        width: 500px;
     }
-    nav, .nav-container {
-       width: 200px;
-       margin: auto;
+    nav{
+        height:100%;
+        max-height: 300px;
     }
-    .card-container, .card {
+
+    nav,
+    .nav-container {
+        width: 200px;
+        margin: auto;
+    }
+
+    .card-container,
+    .card {
         width: 300px !important;
     }
 
 }
+
 @media screen and (max-width:375px) {
     main-container {
-       width: 360px;
-       display: flex;
-       justify-content: center;
-       margin: auto;
+        width: 360px;
+        display: flex;
+        justify-content: center;
+        margin: auto;
     }
-    nav, .nav-container {
-       width: 180px !important;
-       margin: 10px auto;
+
+    nav,
+    .nav-container {
+        width: 180px !important;
+        margin: 10px auto;
     }
-    .card-container, .card {
+
+    .card-container,
+    .card {
         width: 200px !important;
         margin: auto;
     }
