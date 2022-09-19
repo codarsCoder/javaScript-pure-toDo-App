@@ -73,7 +73,7 @@ nav .nav-header {
     border-radius: 11px 0px 82px;
 }
 
-nav .nav-header i{
+nav .nav-header .fa-plus{
     font-size: 1.5rem;
     right: 4px;
     bottom: 2px;
@@ -82,13 +82,23 @@ nav .nav-header i{
     position: absolute; 
     color:var(--firs)
 }
-nav .nav-header i:hover{
+nav .nav-header .fa-plus:hover{
     font-size: 1.7rem;
     margin-top: 15px;
     cursor: pointer; 
     color:var(--3)     
 }
-
+ .opt{ /* i setting*/
+    position: absolute !important;
+    left: 6px;
+    top: 6px;
+    font-size: 1rem !important;
+    transition: all 0.5s;
+ }
+ .opt:hover{   
+    
+    font-size: 1.2rem !important;
+ }
 
 nav #add-links {
     height: 100%;
@@ -253,7 +263,7 @@ nav span.trash button {
     font-size: 1.2rem;
 }
 
-.fa-tasks:hover::before {
+/* .fa-tasks:hover::before {
     font-family: "Font Awesome 5 Free"; 
 	font-weight: 400;
 	content: "\f0c7";
@@ -263,7 +273,7 @@ nav span.trash button {
     font-family: "Font Awesome 5 Free"; 
 	font-weight: 400;
 	content: "\f0c7";
-}
+} */
 
 /* #task {
     margin-top: 1px;
@@ -290,11 +300,11 @@ nav span.trash button {
 }
 
 #plus-add-item {
-    position: absolute;
+    /* position: absolute;
     right: 90px;
     font-size: 1.5rem;
     cursor: pointer;
-    transition: all 1s;
+    transition: all 1s; */
 }
 
 #plus-add-item:hover {
@@ -477,10 +487,54 @@ color:var(--l1)
     
 }
 
+.options i{
+    font-size: 1.3rem;
+    transition: all 0.5s;
+}
+.options i:hover {
+    font-size: 1.5rem;
+}
 
+.z-index-4 {
+    z-index: 100000 !important;
+}
+
+.z-index-3 {
+    z-index: 90000 !important;
+}
 @media screen and (max-width:992px) {
     #add-links {
         height: 300px;
+    }
+
+}
+@media screen and (max-width:600px) {
+    main-container {
+       width: 600px;
+    }
+    nav, .nav-container {
+       width: 200px;
+       margin: auto;
+    }
+    .card-container, .card {
+        width: 300px !important;
+    }
+
+}
+@media screen and (max-width:375px) {
+    main-container {
+       width: 360px;
+       display: flex;
+       justify-content: center;
+       margin: auto;
+    }
+    nav, .nav-container {
+       width: 180px !important;
+       margin: 10px auto;
+    }
+    .card-container, .card {
+        width: 200px !important;
+        margin: auto;
     }
 
 }
