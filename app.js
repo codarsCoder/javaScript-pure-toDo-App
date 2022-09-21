@@ -159,9 +159,7 @@ function sortItem(cName) {
   getId("add-task").classList.remove("d-none");
   getId("plus-add-item").classList.remove("d-none");
   getId("task-name").innerText = cName;
-  if (list.length) {
-    getId("add-list").innerHTML = `<li><h2 style="margin:auto">list ${cName} is empty</h2></li>`;
-  }
+
 
   let tek = []; // boş dizileri oluşturduk  ve daha önce completed kısmı ture  ve false olmasına göre li lere 1 ve 2 verdik
   let cift = []; // 1 yapıldı  iki yapılmadı demek   li deki data kısmına da ilgili elemanın id sini verdik id kısmında  1 yazanların dataolanları bir listeye iki olnların
@@ -217,6 +215,9 @@ function sortItem(cName) {
   getId("ctgry-name").value = cName; // task eklemek için kategori adını formdaki yerine yazdırdık
   getCategories();
   getId("task").innerHTML = `<strong>${todoList.length}</strong>`;
+  if (!list.length) {
+    getId("add-list").innerHTML = `<h2 style="margin:auto">list ${cName} is empty</h2>`;
+  }
 }
 
 // delete list item
