@@ -133,7 +133,7 @@ function addList() {
   setITem(cName, todoList);
 
   const todoListh = getITem(cName);
-  todoListh.forEach((item) => {});
+  // todoListh.forEach((item) => {});
   getId("item-name").value = "";
   getId("item-name").focus();
   cName ? sortItem(cName) : "";
