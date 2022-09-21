@@ -1,4 +1,5 @@
-window.onload = function () {// BU FONKSİYONLAR SAYFADAKİ TÜM İŞLEMLER BİTTİKTEN SONRA ÇALIŞMASI GEREKİR
+window.onload = function () {
+  // BU FONKSİYONLAR SAYFADAKİ TÜM İŞLEMLER BİTTİKTEN SONRA ÇALIŞMASI GEREKİR
   getCategories();
   allTasks();
 };
@@ -95,8 +96,7 @@ function deleteCategory(id) {
     getCategories();
     allTasks();
     getId("add-list").innerText = "";
-    getId("task-name").innerText= "";
-   
+    getId("task-name").innerText = "";
   }
 }
 
@@ -136,7 +136,7 @@ function addList() {
   todoListh.forEach((item) => {});
   getId("item-name").value = "";
   getId("item-name").focus();
-  cName ?  sortItem(cName) : "";
+  cName ? sortItem(cName) : "";
   getId("add-ok").classList.remove("visible");
   getId("add-ok").innerText = "Added";
   setTimeout(function () {
@@ -155,10 +155,14 @@ getId("item-name").addEventListener("keypress", (event) => {
 // get task item list
 
 function sortItem(cName) {
-  let list = getITem(cName); // li listesini aldık
+  let list = getITem(cName) || []; console.log(list.length);// li listesini aldık
   getId("add-task").classList.remove("d-none");
   getId("plus-add-item").classList.remove("d-none");
   getId("task-name").innerText = cName;
+  if (list.length) {
+    getId("add-list").innerHTML = `<li><h2 style="margin:auto">list ${cName} is empty</h2></li>`;
+  }
+
   let tek = []; // boş dizileri oluşturduk  ve daha önce completed kısmı ture  ve false olmasına göre li lere 1 ve 2 verdik
   let cift = []; // 1 yapıldı  iki yapılmadı demek   li deki data kısmına da ilgili elemanın id sini verdik id kısmında  1 yazanların dataolanları bir listeye iki olnların
   list.forEach((item, i) => {
@@ -166,11 +170,9 @@ function sortItem(cName) {
     item.completed == false ? (tek = [...tek, i]) : (cift = [...cift, i]);
   });
   let sortedList = [...tek, ...cift];
-  console.log(sortedList);
-
   let itemList = getId("add-list");
   itemList.innerHTML = "";
- 
+
   const todoList = getITem(cName) || [];
   sortedList.forEach((item) => {
     const itemName = todoList[item].itemName;
@@ -215,7 +217,6 @@ function sortItem(cName) {
   getId("ctgry-name").value = cName; // task eklemek için kategori adını formdaki yerine yazdırdık
   getCategories();
   getId("task").innerHTML = `<strong>${todoList.length}</strong>`;
-  
 }
 
 // delete list item
