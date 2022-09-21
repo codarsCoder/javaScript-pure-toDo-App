@@ -2,6 +2,7 @@ window.onload = function () {// BU FONKSİYONLAR SAYFADAKİ TÜM İŞLEMLER BİT
   getCategories();
   allTasks();
 };
+
 // Functions
 
 function getITem(key) {
@@ -213,6 +214,8 @@ function sortItem(cName) {
   });
   getId("ctgry-name").value = cName; // task eklemek için kategori adını formdaki yerine yazdırdık
   getCategories();
+  getId("task").innerHTML = `<strong>${todoList.length}</strong>`;
+  
 }
 
 // delete list item
@@ -288,6 +291,7 @@ function saveJson() {
 function getUploadJson() {
   $("#json-yukle").modal("show");
   $("#options").modal("hide");
+  getId("addjson").innerText = "Paste the saved json file content";
 }
 
 function upLoadJson() {
