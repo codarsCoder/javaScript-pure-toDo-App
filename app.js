@@ -1,6 +1,7 @@
 window.onload = function () {// BU FONKSİYONLAR SAYFADAKİ TÜM İŞLEMLER BİTTİKTEN SONRA ÇALIŞMASI GEREKİR
   getCategories();
-  allTasks();};
+  allTasks();
+};
 // Functions
 
 function getITem(key) {
