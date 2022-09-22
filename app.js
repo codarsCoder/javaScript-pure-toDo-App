@@ -43,10 +43,10 @@ function message(message) {
 
 // Add category
 
-getId("category-add").addEventListener("click", () => {
+function AddCategory(){
   const cName = noSpace(noHyphen(getId("category-name").value.toUpperCase()));
-  if (cName.length > 14) {
-    message("max 14 character!");
+  if ( cName.length == 0 ||  cName.length > 14) {
+    message("min 1 max 14 character!");
   } else {
     const cList = getITem("toDos") || [];
 
@@ -62,8 +62,17 @@ getId("category-add").addEventListener("click", () => {
       getCategories();
     }
   }
+}
+getId("category-add").addEventListener("click", () => {
+    AddCategory()
 });
 
+  // add category with enter
+  getId("category-name").addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      AddCategory()
+  }
+  })
 // get categories
 
 function getCategories() {
