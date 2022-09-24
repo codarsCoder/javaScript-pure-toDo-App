@@ -345,6 +345,9 @@ nav span.trash button {
     background-color: var(--0);
 }
 
+.add-list{
+    transition: all 0.5s;
+}
 .add-list li {
     display: flex;
     align-items: center;

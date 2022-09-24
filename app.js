@@ -318,13 +318,15 @@ function allTasks() {
 // alltasks list
 async function  allTasksList() {
   allList = 1;
-  getId("add-task").classList.add("d-none");  //todo ekeme butonlarını kaldıralım
-  getId("plus-add-item").classList.add("d-none");
+ 
   getId("add-list").innerHTML="";
   let todos = getITem("toDos") || [];
   todos.forEach((todo) => {
     sortItem(todo)
   });
+  getId("add-task").classList.add("d-none");  //todo ekeme butonlarını kaldıralım
+  getId("plus-add-item").classList.add("d-none");
+  getId("ctgry-name").value = "";
   allList = 0; // listelerken liste aıfırlama normal hale getiriliyor
 
 }
