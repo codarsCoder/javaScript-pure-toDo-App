@@ -345,6 +345,12 @@ nav span.trash button {
     background-color: var(--0);
 }
 
+.add-list li {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 80% !important;
+}
 .list-group-item {
     position: relative;
     display: block;
@@ -387,6 +393,7 @@ nav span.trash button {
     flex: 1;
     position: relative;
     align-items: center;
+    padding-right: 40px;
 }
 
 .widget-content .widget-content-right.widget-content-actions {
@@ -399,6 +406,14 @@ nav span.trash button {
     margin-left: auto;
 }
 
+.widget-content-right{
+    position: absolute;
+    right: -18px;
+}
+.widget-content-left{
+    word-break: break-all;
+   
+}
 .widget-content-left:hover{
     cursor: pointer;
 }
@@ -472,6 +487,9 @@ nav span.trash button {
 
 .color-3 {
     background-color: var(--l3);
+}
+.color-4 {
+    background-color: rgba(255, 255, 255, 0.016);
 }
 
 .add-ok {

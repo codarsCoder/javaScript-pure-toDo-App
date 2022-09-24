@@ -162,7 +162,7 @@ getId("item-name").addEventListener("keypress", (event) => {
 });
 
 // get task item list
-
+ let allList =0; // bu 0 olursa kategoriye her tıklamada önce liste temizlenir ve listeye o kategorinin listesi eklenir 1 ise tüm kategorileri listelemek için liste sıfırlanmaz arka arkaya tüm kategorilerin listesi eklenir
 function sortItem(cName) {
   let list = getITem(cName) || [];  // li listesini aldık
   getId("ctgry-name").value = cName; // task eklemek için kategori adını formdaki yerine yazdırdık
@@ -173,11 +173,11 @@ function sortItem(cName) {
   let colors1 = list.reduce((acc,item,i) =>
     item.color == 1 && item.completed == true ? [...acc,i] : [...acc] 
      
-,[])  ; console.log(colors1,"color1");
+,[])  ; 
   let colors1_c = list.reduce((acc,item,i) =>
     item.color == 1 && item.completed == false ? [...acc,i] : [...acc] 
      
-,[]) ;console.log(colors1_c,"color1c");
+,[]) 
   let colors2 = list.reduce((acc,item,i) =>
     (item.color == 2 && item.completed == true) ? [...acc,i] : [...acc] 
      
@@ -196,22 +196,22 @@ function sortItem(cName) {
 ,[])
   let noColors = list.reduce((acc,item,i) =>
     item.color != 1 &&  item.color != 2 &&  item.color != 3 && item.completed == true ? [...acc,i] : [...acc] 
-     
+     // radio hiç seçilmemiş te olabilir  boş olarak ta seçilmiş olabilir hem boş hem color-4 kalıyor geriye ikisinide böyle seçmiş olduk
 ,[])
   let noColors_c = list.reduce((acc,item,i) =>
   item.color != 1 &&  item.color != 2 &&   item.color != 3 && item.completed == false ? [...acc,i] : [...acc] 
      
 ,[])
 
-  list = [...(colors1_c.reverse()), ...(colors2_c.reverse()), ...(colors3_c.reverse()), ...(noColors_c.reverse()),...(colors1.reverse()), ...(colors2.reverse()), ...(colors3.reverse()), ...(noColors.reverse())] ; console.log(list);
+  list = [...(colors1_c.reverse()), ...(colors2_c.reverse()), ...(colors3_c.reverse()), ...(noColors_c.reverse()),...(colors1.reverse()), ...(colors2.reverse()), ...(colors3.reverse()), ...(noColors.reverse())] ;
   let itemList = getId("add-list");
-  itemList.innerHTML = "";
+  allList ?  itemList.innerHTML = "" : itemList.innerHTML = cName;   // allList 0 ise tüm listeler getirilmeyecek her kategori tıklandığında liste sıfırlanacak  1 olursa liste sıfırlanmadan arka arkaya tüm kategorilerin listesi eklenecek
   const todoList = getITem(cName) || [];
   list.forEach((item) => { // yukarıda index sırasını aldık ş,md, o sıraya göre localden indexlerle alıyoruz renkler hem yapılmaış hem yapılmışlar olarak gruplandı
     const itemName = todoList[item].itemName;
     const importance = todoList[item].importance;
     const completed = todoList[item].completed;
-    let colors = ["color-1", "color-1", "color-2", "color-3"];
+    let colors = ["color-1", "color-1", "color-2", "color-3", "color-4"];
     const color = colors[todoList[item].color];
     let importan = "";
     importance == "important"
@@ -229,13 +229,11 @@ function sortItem(cName) {
                         <div class="widget-content-left">
                         <div onclick="completeTask('${item}--${cName}')" class="widget-heading ${
                           completed ? "line-through" : null
-                        }"> ${itemName} ${importan} 
+                        }">  ${importan}  ${itemName}
                         </div>
                         </div>
                     <div class="widget-content-right">
-                        <input type="checkbox" id='${item}' onclick="completeTask('${item}--${cName}')" class="task-check " ${
-      completed ? "checked" : null
-    }>
+                        <input type="checkbox" id='${item}' onclick="changeImportant('${item}--${cName}')" class="task-check">
                         
                         <button onclick='deleteList("${item}--${cName}")'  class="border-0 btn-transition btn btn-outline-danger">
                         <i class="fa fa-trash"></i>
@@ -291,8 +289,21 @@ function completeTask(item) {
   setITem(pieces[1], todo);
   sortItem(pieces[1]);
 }
+// change importan task
 
-// All tasks
+function changeImportant(item) {
+  const pieces = item.split("--", 2);
+  let todo = getITem(pieces[1]);
+  let last = todo[pieces[0]];
+  todo[pieces[0]].importance
+    ? (last.importance = "")
+    : last.importance = "important"; // completed true ise false , false ise true olacak
+  todo.splice(pieces[0], 1, last);
+  setITem(pieces[1], todo);
+  sortItem(pieces[1]);
+}
+
+// All tasks number
 function allTasks() {
   let todos = getITem("toDos") || [];
   let count = 0;
@@ -303,6 +314,22 @@ function allTasks() {
 
   getId("task").innerHTML = `<strong>${count}</strong>`;
 }
+
+// alltasks list
+function allTasksList() {
+  let todos = getITem("toDos") || [];
+  todos.forEach((todo) => {
+    allList = 1;
+    // getId("add-list").innerHTML +=`<strong>${todo}</strong>`;
+    sortItem(todo)
+     //  tüm listeyi getirmek için sortitem kısmında lazım
+  });
+  allList = 0; // listelerken liste aıfırlama normal hale getiriliyor
+
+}
+
+
+
 
 function saveJson() {
   let saveObj = [];

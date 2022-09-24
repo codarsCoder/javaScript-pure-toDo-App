@@ -30,7 +30,7 @@
                 <div class="card-hover-shadow-2x mb-3 card">
                     <div class="card-header-tab card-header d-flex justify-content-between align-items-center ">
                     <div class="card-header-title font-size-lg text-capitalize font-weight-normal d-flex align-items-center "><i
-                        class="fa fa-tasks" ></i>&nbsp;Task Lists</div>
+                        onclick="allTasksList()" class="fa fa-tasks" ></i>&nbsp;Task Lists</div>
                         <div class="card-header-middle"><span style="font-size: 1.3rem" id="task-name"></span></div>
                         <div class="task d-flex align-items-center"><i id="plus-add-item"   data-target="#add-item" data-toggle="modal" class=" fa fa-plus d-none m-2" aria-hidden="true">
                     </i> All tasks &nbsp <span class="m-2" id="task"><strong>1000</strong></span></div>
@@ -132,7 +132,7 @@
                                         <div class="form-group">
                                             <label for="importance">Importance</label>
                                             <select class="form-control" id="importance">
-                                                <option>ordinary</option>
+                                                <option></option>
                                               <option>important</option>
                                             </select>
                                           </div>
@@ -145,6 +145,8 @@
                                             <input  id="color2" type="radio" name="radios" class="form-control check" value="2">
                                             <label style="background-color: var(--l3); width: 40px ; height: 40px; margin-left:10px" for="color3" class="col-form-label"> </label>
                                             <input  id="color3" type="radio" name="radios" class="form-control check" value="3">
+                                            <label style="background-color: white; width: 40px ; height: 40px; margin-left:10px" for="color4" class="col-form-label">Empty </label>
+                                            <input  id="color4" type="radio" name="radios" class="form-control check" value="4">
                                           </div>
                                  
                                       </form>
