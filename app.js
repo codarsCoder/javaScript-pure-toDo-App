@@ -205,7 +205,7 @@ function sortItem(cName) {
 
   list = [...(colors1_c.reverse()), ...(colors2_c.reverse()), ...(colors3_c.reverse()), ...(noColors_c.reverse()),...(colors1.reverse()), ...(colors2.reverse()), ...(colors3.reverse()), ...(noColors.reverse())] ;
   let itemList = getId("add-list"); console.log(allList);
-  !allList ?  itemList.innerHTML = "" : itemList.innerHTML += `<strong style="margin:auto"; font-size="18px">${cName}</strong`;   // allList 0 ise tüm listeler getirilmeyecek her kategori tıklandığında liste sıfırlanacak  1 olursa liste sıfırlanmadan arka arkaya tüm kategorilerin listesi eklenecek
+  !allList ?  itemList.innerHTML = "" : itemList.innerHTML += `<div  style="margin:auto;font-weight:700 ;font-size:25px">${cName}</div>`;   // allList 0 ise tüm listeler getirilmeyecek her kategori tıklandığında liste sıfırlanacak  1 olursa liste sıfırlanmadan arka arkaya tüm kategorilerin listesi eklenecek
   const todoList = getITem(cName) || [];
   list.forEach((item) => { // yukarıda index sırasını aldık şimdi, o sıraya göre localden indexlerle alıyoruz renkler hem yapılmaış hem yapılmışlar olarak gruplandı
     const itemName = todoList[item].itemName;
@@ -318,12 +318,12 @@ function allTasks() {
 // alltasks list
 async function  allTasksList() {
   allList = 1;
+  getId("add-task").classList.add("d-none");  //todo ekeme butonlarını kaldıralım
+  getId("plus-add-item").classList.add("d-none");
+  getId("add-list").innerHTML="";
   let todos = getITem("toDos") || [];
   todos.forEach((todo) => {
-    
-    // getId("add-list").innerHTML +=`<strong>${todo}</strong>`;
     sortItem(todo)
-     //  tüm listeyi getirmek için sortitem kısmında lazım
   });
   allList = 0; // listelerken liste aıfırlama normal hale getiriliyor
 
@@ -361,7 +361,7 @@ function saveJson() {
 function getUploadJson() {
   $("#json-yukle").modal("show");
   $("#options").modal("hide");
-  getId("addjson").innerText = "Paste the saved json file content";
+ 
 }
 
 function upLoadJson() {

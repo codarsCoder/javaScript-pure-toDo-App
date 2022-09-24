@@ -28,9 +28,9 @@
                 </div>
                 <div class="card-container col-md-8 col-lg-9 list mt-1">
                 <div class="card-hover-shadow-2x mb-3 card">
-                    <div class="card-header-tab card-header d-flex justify-content-between align-items-center ">
+                    <div onclick="allTasksList()" style="cursor: pointer" class="card-header-tab card-header d-flex justify-content-between align-items-center ">
                     <div class="card-header-title font-size-lg text-capitalize font-weight-normal d-flex align-items-center "><i
-                        onclick="allTasksList()" class="fa fa-tasks" ></i>&nbsp;Task Lists</div>
+                         class="fa fa-tasks" ></i>&nbsp;Task Lists</div>
                         <div class="card-header-middle"><span style="font-size: 1.3rem" id="task-name"></span></div>
                         <div class="task d-flex align-items-center"><i id="plus-add-item"   data-target="#add-item" data-toggle="modal" class=" fa fa-plus d-none m-2" aria-hidden="true">
                     </i> All tasks &nbsp <span class="m-2" id="task"><strong>1000</strong></span></div>
@@ -94,7 +94,7 @@
                   <div class="modal-body">
                     <form>
                       <div class="form-group">
-                        <textarea class="form-control"   id="addjson" required>Paste the saved json file content</textarea>
+                        <textarea class="form-control" placeholder="Paste the saved json file content"  id="addjson" required></textarea>
                       </div>
                   
                     </form>
