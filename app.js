@@ -204,10 +204,10 @@ function sortItem(cName) {
 ,[])
 
   list = [...(colors1_c.reverse()), ...(colors2_c.reverse()), ...(colors3_c.reverse()), ...(noColors_c.reverse()),...(colors1.reverse()), ...(colors2.reverse()), ...(colors3.reverse()), ...(noColors.reverse())] ;
-  let itemList = getId("add-list");
-  allList ?  itemList.innerHTML = "" : itemList.innerHTML = cName;   // allList 0 ise tüm listeler getirilmeyecek her kategori tıklandığında liste sıfırlanacak  1 olursa liste sıfırlanmadan arka arkaya tüm kategorilerin listesi eklenecek
+  let itemList = getId("add-list"); console.log(allList);
+  !allList ?  itemList.innerHTML = "" : itemList.innerHTML += `<strong style="margin:auto"; font-size="18px">${cName}</strong`;   // allList 0 ise tüm listeler getirilmeyecek her kategori tıklandığında liste sıfırlanacak  1 olursa liste sıfırlanmadan arka arkaya tüm kategorilerin listesi eklenecek
   const todoList = getITem(cName) || [];
-  list.forEach((item) => { // yukarıda index sırasını aldık ş,md, o sıraya göre localden indexlerle alıyoruz renkler hem yapılmaış hem yapılmışlar olarak gruplandı
+  list.forEach((item) => { // yukarıda index sırasını aldık şimdi, o sıraya göre localden indexlerle alıyoruz renkler hem yapılmaış hem yapılmışlar olarak gruplandı
     const itemName = todoList[item].itemName;
     const importance = todoList[item].importance;
     const completed = todoList[item].completed;
@@ -316,10 +316,11 @@ function allTasks() {
 }
 
 // alltasks list
-function allTasksList() {
+async function  allTasksList() {
+  allList = 1;
   let todos = getITem("toDos") || [];
   todos.forEach((todo) => {
-    allList = 1;
+    
     // getId("add-list").innerHTML +=`<strong>${todo}</strong>`;
     sortItem(todo)
      //  tüm listeyi getirmek için sortitem kısmında lazım
