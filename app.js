@@ -164,24 +164,50 @@ getId("item-name").addEventListener("keypress", (event) => {
 // get task item list
 
 function sortItem(cName) {
-  let list = getITem(cName) || []; console.log(list.length);// li listesini aldık
+  let list = getITem(cName) || [];  // li listesini aldık
+  getId("ctgry-name").value = cName; // task eklemek için kategori adını formdaki yerine yazdırdık
   getId("add-task").classList.remove("d-none");
   getId("plus-add-item").classList.remove("d-none");
   getId("task-name").innerText = cName;
+  //colors groups   hem renkleri hemde o renkteki tamamlanmış görevleri ayrı ayrı grupladık ve hepsinin indeksini sıraladıkki aşağıda o index sırasıyla lokalden çağıracağız
+  let colors1 = list.reduce((acc,item,i) =>
+    item.color == 1 && item.completed == true ? [...acc,i] : [...acc] 
+     
+,[])  ; console.log(colors1,"color1");
+  let colors1_c = list.reduce((acc,item,i) =>
+    item.color == 1 && item.completed == false ? [...acc,i] : [...acc] 
+     
+,[]) ;console.log(colors1_c,"color1c");
+  let colors2 = list.reduce((acc,item,i) =>
+    (item.color == 2 && item.completed == true) ? [...acc,i] : [...acc] 
+     
+,[])
+  let colors2_c = list.reduce((acc,item,i) =>
+    item.color == 2 && item.completed == false ? [...acc,i] : [...acc] 
+     
+,[])
+  let colors3 = list.reduce((acc,item,i) =>
+    item.color == 3 && item.completed == true ? [...acc,i] : [...acc] 
+     
+,[])
+  let colors3_c = list.reduce((acc,item,i) =>
+    item.color == 3 && item.completed == false ? [...acc,i] : [...acc] 
+     
+,[])
+  let noColors = list.reduce((acc,item,i) =>
+    item.color != 1 &&  item.color != 2 &&  item.color != 3 && item.completed == true ? [...acc,i] : [...acc] 
+     
+,[])
+  let noColors_c = list.reduce((acc,item,i) =>
+  item.color != 1 &&  item.color != 2 &&   item.color != 3 && item.completed == false ? [...acc,i] : [...acc] 
+     
+,[])
 
-
-  let tek = []; // boş dizileri oluşturduk  ve daha önce completed kısmı ture  ve false olmasına göre li lere 1 ve 2 verdik
-  let cift = []; // 1 yapıldı  iki yapılmadı demek   li deki data kısmına da ilgili elemanın id sini verdik id kısmında  1 yazanların dataolanları bir listeye iki olnların
-  list.forEach((item, i) => {
-    console.log(item.completed);
-    item.completed == false ? (tek = [...tek, i]) : (cift = [...cift, i]);
-  });
-  let sortedList = [...tek, ...cift];
+  list = [...(colors1_c.reverse()), ...(colors2_c.reverse()), ...(colors3_c.reverse()), ...(noColors_c.reverse()),...(colors1.reverse()), ...(colors2.reverse()), ...(colors3.reverse()), ...(noColors.reverse())] ; console.log(list);
   let itemList = getId("add-list");
   itemList.innerHTML = "";
-
   const todoList = getITem(cName) || [];
-  sortedList.forEach((item) => {
+  list.forEach((item) => { // yukarıda index sırasını aldık ş,md, o sıraya göre localden indexlerle alıyoruz renkler hem yapılmaış hem yapılmışlar olarak gruplandı
     const itemName = todoList[item].itemName;
     const importance = todoList[item].importance;
     const completed = todoList[item].completed;
@@ -201,7 +227,7 @@ function sortItem(cName) {
                         <div class="widget-content-left mr-2">
                         </div>
                         <div class="widget-content-left">
-                        <div class="widget-heading ${
+                        <div onclick="completeTask('${item}--${cName}')" class="widget-heading ${
                           completed ? "line-through" : null
                         }"> ${itemName} ${importan} 
                         </div>
@@ -221,9 +247,10 @@ function sortItem(cName) {
                 </li> 
                 `;
   });
-  getId("ctgry-name").value = cName; // task eklemek için kategori adını formdaki yerine yazdırdık
+  
   getCategories();
-  getId("task").innerHTML = `<strong>${todoList.length}</strong>`;
+  allTasks();
+  // getId("task").innerHTML = `<strong>${todoList.length}</strong>`; // o anki listelenen  task toplam 
   if (!list.length) {
     getId("add-list").innerHTML = `<h2 style="margin:auto">list ${cName} is empty</h2>`;
   }
@@ -232,19 +259,23 @@ function sortItem(cName) {
 // delete list item
 
 function deleteList(item) {
-  const pieces = item.split("--", 2);
-  let todo = getITem(pieces[1]);
-  let count = todo.length;
-  todo.splice(pieces[0], 1);
-  setITem(pieces[1], todo);
-  sortItem(pieces[1]);
-  count == 1
-    ? (getId(
-        "add-list"
-      ).innerHTML = `<h2 style="margin:auto">list ${pieces[1]} is empty</h2>`)
-    : null; // listede bir eleman kalmışsa sildikten sonnra liste boşalacağından empty ekledik
-  getId("task").innerHTML = `<strong>${count - 1}</strong>`;
-  getCategories();
+  let ok = confirm("are you sure you want to delete?")
+  if(ok){
+    const pieces = item.split("--", 2);
+    let todo = getITem(pieces[1]);
+    let count = todo.length;
+    todo.splice(pieces[0], 1);
+    setITem(pieces[1], todo);
+    sortItem(pieces[1]);
+    count == 1
+      ? (getId(
+          "add-list"
+        ).innerHTML = `<h2 style="margin:auto">list ${pieces[1]} is empty</h2>`)
+      : null; // listede bir eleman kalmışsa sildikten sonnra liste boşalacağından empty ekledik
+    // getId("task").innerHTML = `<strong>${count - 1}</strong>`;
+    allTasks();
+    getCategories();
+  }
 }
 
 // complete task
