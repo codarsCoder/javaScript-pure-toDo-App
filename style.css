@@ -605,7 +605,7 @@ nav span.trash button {
 
     .card-container,
     .card {
-        width: 100% !important;
+        width: 360px !important;
         margin: auto;
     }
 
