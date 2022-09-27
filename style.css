@@ -596,7 +596,9 @@ nav span.trash button {
         justify-content: center;
         margin: auto;
     }
-
+    .row {
+        margin-right: 5px !important;
+    }
     nav,
     .nav-container {
         width: 100%;
