@@ -205,7 +205,7 @@ function sortItem(cName) {
 
   list = [...(colors1_c.reverse()), ...(colors2_c.reverse()), ...(colors3_c.reverse()), ...(noColors_c.reverse()),...(colors1.reverse()), ...(colors2.reverse()), ...(colors3.reverse()), ...(noColors.reverse())] ;
   let itemList = getId("add-list"); console.log(allList);
-  !allList ?  itemList.innerHTML = "" : itemList.innerHTML += `<div  style="margin:auto;font-weight:700 ;font-size:25px">${cName}</div>`;   // allList 0 ise tüm listeler getirilmeyecek her kategori tıklandığında liste sıfırlanacak  1 olursa liste sıfırlanmadan arka arkaya tüm kategorilerin listesi eklenecek
+  !allList ?  itemList.innerHTML = "" : itemList.innerHTML += `<div  style="border-bottom:2px dotted blue;margin:5px auto;font-weight:700 ;font-size:25px">${cName}${!list.length ? ` :(is empty)`: ""}</div>`;   // allList 0 ise tüm listeler getirilmeyecek her kategori tıklandığında liste sıfırlanacak  1 olursa liste sıfırlanmadan arka arkaya tüm kategorilerin listesi eklenecek
   const todoList = getITem(cName) || [];
   list.forEach((item) => { // yukarıda index sırasını aldık şimdi, o sıraya göre localden indexlerle alıyoruz renkler hem yapılmaış hem yapılmışlar olarak gruplandı
     const itemName = todoList[item].itemName;
@@ -249,7 +249,7 @@ function sortItem(cName) {
   getCategories();
   allTasks();
   // getId("task").innerHTML = `<strong>${todoList.length}</strong>`; // o anki listelenen  task toplam 
-  if (!list.length) {
+  if (!list.length && allList == 0) {  // tüm tasklar listelenirken boş kategoriye gelip durmasın diye alllist = 0 şartını koyduk
     getId("add-list").innerHTML = `<h2 style="margin:auto">list ${cName} is empty</h2>`;
   }
 }
@@ -313,6 +313,7 @@ function allTasks() {
   });
 
   getId("task").innerHTML = `<strong>${count}</strong>`;
+
 }
 
 // alltasks list
