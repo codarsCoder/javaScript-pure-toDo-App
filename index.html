@@ -13,7 +13,7 @@
  
     <div class="continer d-flex justify-content-center container main-container">
             <div class="row d-flex justify-content-center container">
-                <div class="col-7 col-md-4 col-lg-3 nav-container ">
+                <div class="col-12 col-md-4 col-lg-3 nav-container ">
                     <nav class="nav">
                         <div class="nav-header ">Categories
                           <i class="fas fa-cog opt text-white" data-target="#options" data-toggle="modal"></i>
@@ -28,9 +28,9 @@
                 </div>
                 <div class="card-container col-md-8 col-lg-9 list mt-1">
                 <div class="card-hover-shadow-2x mb-3 card">
-                    <div onclick="allTasksList()" style="cursor: pointer" class="card-header-tab card-header d-flex justify-content-between align-items-center ">
+                    <div  style="cursor: pointer" class="card-header-tab card-header d-flex justify-content-between align-items-center ">
                     <div class="card-header-title font-size-lg text-capitalize font-weight-normal d-flex align-items-center "><i
-                         class="fa fa-tasks" ></i>&nbsp;Task Lists</div>
+                      onclick="allTasksList()" class="fa fa-tasks" ></i>&nbsp;Task Lists</div>
                         <div class="card-header-middle"><span style="font-size: 1.3rem" id="task-name"></span></div>
                         <div class="task d-flex align-items-center"><i id="plus-add-item"   data-target="#add-item" data-toggle="modal" class=" fa fa-plus d-none m-2" aria-hidden="true">
                     </i> All tasks &nbsp <span class="m-2" id="task"><strong></strong></span></div>

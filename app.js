@@ -1,4 +1,14 @@
 window.onload = function () {
+  if(!getITem("toDos")){  // localstoregade depoladığım herşeyi dizi içinde depolayıp diziye çevirip kullandım o yüzden burada da default verileri dizi içine yerleştirerek kaydettim
+    setITem("toDos",["PROJECTS"])
+    const fistTodo = {
+      itemName: "ToDo",
+      importance: "important",
+      completed: true,
+      color: 1,
+    };
+    setITem("PROJECTS", [fistTodo])
+  }
   // BU FONKSİYONLAR SAYFADAKİ TÜM İŞLEMLER BİTTİKTEN SONRA ÇALIŞMASI GEREKİR
   getCategories();
   allTasks();
@@ -204,7 +214,7 @@ function sortItem(cName) {
 ,[])
 
   list = [...(colors1_c.reverse()), ...(colors2_c.reverse()), ...(colors3_c.reverse()), ...(noColors_c.reverse()),...(colors1.reverse()), ...(colors2.reverse()), ...(colors3.reverse()), ...(noColors.reverse())] ;
-  let itemList = getId("add-list"); console.log(allList);
+  let itemList = getId("add-list");
   !allList ?  itemList.innerHTML = "" : itemList.innerHTML += `<div  style="border-bottom:2px dotted blue;margin:5px auto;font-weight:700 ;font-size:25px">${cName}${!list.length ? ` :(is empty)`: ""}</div>`;   // allList 0 ise tüm listeler getirilmeyecek her kategori tıklandığında liste sıfırlanacak  1 olursa liste sıfırlanmadan arka arkaya tüm kategorilerin listesi eklenecek
   const todoList = getITem(cName) || [];
   list.forEach((item) => { // yukarıda index sırasını aldık şimdi, o sıraya göre localden indexlerle alıyoruz renkler hem yapılmaış hem yapılmışlar olarak gruplandı
