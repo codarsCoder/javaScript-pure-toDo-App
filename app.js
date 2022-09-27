@@ -178,7 +178,7 @@ function sortItem(cName) {
   getId("ctgry-name").value = cName; // task eklemek için kategori adını formdaki yerine yazdırdık
   getId("add-task").classList.remove("d-none");
   getId("plus-add-item").classList.remove("d-none");
-  getId("task-name").innerText = cName;
+  getId("task-name").innerText = allList ? "All Categories" : cName;  // tüm kategoriler listeleniyorsa allct.. yazzın yoksa kategori ismi yazsın
   //colors groups   hem renkleri hemde o renkteki tamamlanmış görevleri ayrı ayrı grupladık ve hepsinin indeksini sıraladıkki aşağıda o index sırasıyla lokalden çağıracağız
   let colors1 = list.reduce((acc,item,i) =>
     item.color == 1 && item.completed == true ? [...acc,i] : [...acc] 
