@@ -112,7 +112,7 @@ nav .nav-header .fa-plus:hover {
 nav #add-links {
     width: 100%;
     overflow-y: auto;
-    /* padding-bottom: 10px; */
+    padding-bottom: 5px;
 }
 
 nav .s-link {
