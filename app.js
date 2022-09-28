@@ -1,13 +1,20 @@
 window.onload = function () {
   if(!getITem("toDos")){  // localstoregade depoladığım herşeyi dizi içinde depolayıp diziye çevirip kullandım o yüzden burada da default verileri dizi içine yerleştirerek kaydettim
     setITem("toDos",["PROJECTS"])
-    const fistTodo = {
-      itemName: "ToDo",
-      importance: "important",
-      completed: true,
-      color: 1,
-    };
-    setITem("PROJECTS", [fistTodo])
+    let firstTodos = [["Todo","important",true,1],["weather Api","",false,2],["checkout page","important",false,1],["kredi hesaplama","",true,1],["responsive page","important",false,1],["google clone","important",false,2]]
+    firstTodos.forEach(ftd => {
+      const [ToDo, important,booleans, color ] = ftd;
+      const firstTodo = {
+        itemName: ToDo,
+        importance: important,
+        completed: booleans,
+        color: color,
+      };
+      let projects = getITem("PROJECTS") || [];
+     let firstTodos = [firstTodo, ...projects]
+      setITem("PROJECTS", firstTodos)
+    })
+  
   }
   // BU FONKSİYONLAR SAYFADAKİ TÜM İŞLEMLER BİTTİKTEN SONRA ÇALIŞMASI GEREKİR
   getCategories();
