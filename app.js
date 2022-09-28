@@ -243,7 +243,8 @@ function sortItem(cName) {
                         </div>
                         </div>
                     <div class="widget-content-right">
-                        <input type="checkbox" id='${item}' onclick="changeImportant('${item}--${cName}')" class="task-check">
+                        <input type="checkbox" id='${item}' onclick="changeImportant('${item}--${cName}')" class="task-check"  ${ importance == "important"
+                        ? `checked` : ""}>
                         
                         <button onclick='deleteList("${item}--${cName}")'  class="border-0 btn-transition btn btn-outline-danger">
                         <i class="fa fa-trash"></i>
