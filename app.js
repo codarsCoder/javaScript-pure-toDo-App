@@ -115,6 +115,7 @@ function deleteCategory(id) {
   const warnng = confirm("are you sure you want to delete?");
   if (warnng) {
     const cList = getITem("toDos");
+    
     const deleted = cList[id];
     cList.splice(id, 1);
     setITem("toDos", cList);
@@ -123,6 +124,7 @@ function deleteCategory(id) {
     allTasks();
     getId("add-list").innerText = "";
     getId("task-name").innerText = "";
+    (cList.length-1) ? delITem("toDos") : "" ; // -1 in nedeni biz cListi fonksiyonun baş kısmında çağırdık son bir eleman kaldıysa cList=1 çıkacak dolayısıyla biz silme işlemi sonrası liste bir eksilecek bir eksilince sıfır oluyormu ona bakmak için -1 yaptık çümkü clist hala kategori silmedne önceki haliyle duruyor
   }
 }
 
