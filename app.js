@@ -11,7 +11,7 @@ window.onload = function () {
         color: color,
       };
       let projects = getITem("PROJECTS") || [];
-     let firstTodos = [firstTodo, ...projects]
+     let firstTodos = [firstTodo, ...projects] // objeyi diziye ekledik ...projects dizideki elemanları da yeni dizinin son kısmına ekledi
       setITem("PROJECTS", firstTodos)
     })
   
