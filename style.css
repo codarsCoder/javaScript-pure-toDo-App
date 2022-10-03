@@ -33,7 +33,7 @@ body {
     line-height: 1.5;
     text-align: left;
     background-color: var(--1);
-    background-image: url(./bg.jpg);
+    background-image: url(./bg.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
