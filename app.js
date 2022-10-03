@@ -124,7 +124,7 @@ function getCategories() {
 
 // Delete category
 function deleteCategory(id) {
-  const warnng = confirm("Are you sure you want to delete?");
+  const warnng = confirm("Do you want to delete?");
   if (warnng) {
     const cList = getITem("toDos");
     const deleted = cList[id];
