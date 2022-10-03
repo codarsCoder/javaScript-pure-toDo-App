@@ -1,27 +1,5 @@
 window.onload = function () {
-  if (!getITem("toDos")) {
-    setITem("toDos", ["PROJECTS"]);
-    let firstTodos = [
-      ["Todo", "important", true, 1],
-      ["weather Api", "", false, 2],
-      ["checkout page", "important", false, 1],
-      ["kredi hesaplama", "", true, 1],
-      ["responsive page", "important", false, 1],
-      ["google clone", "important", false, 2],
-    ];
-    firstTodos.forEach((ftd) => {
-      const [ToDo, important, booleans, color] = ftd;
-      const firstTodo = {
-        itemName: ToDo,
-        importance: important,
-        completed: booleans,
-        color: color,
-      };
-      let projects = getITem("PROJECTS") || [];
-      let firstTodos = [firstTodo, ...projects];
-      setITem("PROJECTS", firstTodos);
-    });
-  }
+  getDefaultTodos();
   getCategories();
   allTasks();
 };
@@ -135,7 +113,7 @@ function deleteCategory(id) {
     allTasks();
     getId("add-list").innerText = "";
     getId("task-name").innerText = "";
-    cList.length - 1 ? delITem("toDos") : "";
+    !cList.length ? delITem("toDos") : "";
   }
 }
 
@@ -270,7 +248,7 @@ function sortItem(cName) {
     const color = colors[todoList[item].color];
     let importan = "";
     importance == "important"
-      ? (importan = '<div class="badge badge-danger ml-2">Important</div>')
+      ? (importan = '<div class="badge badge-danger ml-2"><i class="fas fa-star"></i></div>')
       : (importan = "");
     itemList.innerHTML += ` 
                     <li id="${item}" data="${completed ? 2 : 1
@@ -410,6 +388,7 @@ function saveJson() {
 // upload json data modal
 function getUploadJson() {
   $("#json-upload").modal("show");
+  $("#addjson").focus();
   $("#options").modal("hide");
 }
 
@@ -432,6 +411,87 @@ function upLoadJson() {
   allTasks();
   getId("addjson").value = "";
   $("#json-upload").modal("hide");
+}
+
+// Add default todo 
+function getDefaultTodos(){
+  if (!getITem("toDos")) {
+
+    //one
+    setITem("toDos", ["SHOPPING"]);
+    let firstTodos = [
+      ["Milk", "important", true, 1],
+      ["Butter", "", false, 2],
+      ["Magazine", "important", false, 1],
+      ["Bred", "", true, 1],
+      ["Ice", "important", false, 1],
+      ["Cream", "important", false, 2],
+      ["Jam", "important", false, 2],
+    ];
+    firstTodos.forEach((ftd) => {
+      const [ToDo, important, booleans, color] = ftd;
+      const firstTodo = {
+        itemName: ToDo,
+        importance: important,
+        completed: booleans,
+        color: color,
+      };
+      let projects = getITem("SHOPPING") || [];
+      let firstTodos = [firstTodo, ...projects];
+      setITem("SHOPPING", firstTodos);
+    });
+
+    // two
+    let Categories = getITem("toDos");
+    let newCategoies = ["BIRDTHDAY", ...Categories];
+    setITem("toDos",newCategoies);
+       firstTodos = [
+      ["Dinner reservation", "important", true, 1],
+      ["Gifts", "", false, 2],
+      ["Music Band", "important", false, 1],
+      ["Dry cleaner", "important", false, 1],
+      ["Haircut", "important", false, 2],
+    ];
+    firstTodos.forEach((ftd) => {
+      const [ToDo, important, booleans, color] = ftd;
+      const firstTodo = {
+        itemName: ToDo,
+        importance: important,
+        completed: booleans,
+        color: color,
+      };
+      let projects = getITem("BIRDTHDAY") || [];
+      let firstTodos = [firstTodo, ...projects];
+      setITem("BIRDTHDAY", firstTodos);
+    });
+
+    //three
+    Categories = getITem("toDos");
+    newCategoies = ["DAILY", ...Categories];
+    setITem("toDos",newCategoies);
+      firstTodos = [
+      ["Call mom", "important", true, 1],
+      ["Pay bills", "", false, 2],
+      ["Get doctor appointment", "important", false, 1],
+      ["Go to parent meeting", "", true, 1],
+      ["Passport check", "important", false, 1],
+      ["Veterinary for dog", "important", false, 2],
+      ["Mediaciton", "important", false, 2],
+      ["Work js", "important", true, 2],
+    ];
+    firstTodos.forEach((ftd) => {
+      const [ToDo, important, booleans, color] = ftd;
+      const firstTodo = {
+        itemName: ToDo,
+        importance: important,
+        completed: booleans,
+        color: color,
+      };
+      let projects = getITem("DAILY") || [];
+      let firstTodos = [firstTodo, ...projects];
+      setITem("DAILY", firstTodos);
+    });
+  }
 }
 
 // modal show setting
