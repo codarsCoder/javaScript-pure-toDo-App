@@ -17,7 +17,6 @@
     --4: #219ebc;
 }
 
-
 * {
     margin: 0;
     padding: 0;
@@ -26,19 +25,18 @@
     list-style-type: none;
 }
 
-a {
-    color: #495057;
-}
-
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-size: 0.88rem;
     font-weight: 400;
     line-height: 1.5;
-
     text-align: left;
     background-color: var(--1);
+}
+
+a {
+    color: #495057;
 }
 
 i {
@@ -61,7 +59,6 @@ nav {
     display: block !important;
 
 }
-
 
 nav .nav-header {
     width: 100%;
@@ -95,8 +92,8 @@ nav .nav-header .fa-plus:hover {
     color: var(--3)
 }
 
+/* i setting */
 .opt {
-    /* i setting*/
     position: absolute !important;
     left: 6px;
     top: 6px;
@@ -105,7 +102,6 @@ nav .nav-header .fa-plus:hover {
 }
 
 .opt:hover {
-
     font-size: 1.2rem !important;
 }
 
@@ -122,11 +118,9 @@ nav .s-link {
     font-family: monospace;
     font-size: 1.2rem;
     font-weight: 600;
-    /* background-color: #3ac47d; */
     left: 10px;
     text-align: left;
     cursor: pointer;
-
 }
 
 nav .links {
@@ -145,22 +139,17 @@ nav .links button {
 }
 
 nav .links button:hover {
-
     background-color: rgba(0, 0, 0, 0.1);
 }
 
 
 nav .links:nth-of-type(odd) {
     background: var(--2);
-    /*var(--third); */
 }
 
 nav .links:nth-of-type(even) {
     background: var(--3);
 }
-
-
-.list {}
 
 nav span.tasks,
 nav span.trash {
@@ -179,12 +168,9 @@ nav span.tasks-num {
     font-weight: 600;
     text-align: center;
     background-color: var(--4);
-    /* box-shadow:var(--shadow); */
     display: flex;
     align-items: center;
     justify-content: center;
-
-
 }
 
 nav span.tasks {
@@ -199,9 +185,6 @@ nav span.tasks {
     color: white;
     text-align: left;
     padding-left: 3px;
-
-
-
 }
 
 nav span.tasks p {
@@ -214,7 +197,6 @@ nav span.trash {
     font-size: 0.8rem;
     transition: all 0.6s;
     background-color: white;
-    /* box-shadow: var(--shadow); */
     border-radius: 50%;
     width: 20px;
     height: 20px;
@@ -263,38 +245,16 @@ nav span.trash button {
     background-color: #0078aa;
     color: white;
     border-radius: 0px 0px 26px !important;
-
 }
 
 .card-header i {
     cursor: pointer;
     transition: all 0.5s;
-
 }
 
 .card-header i:hover {
     color: var(--3);
     font-size: 1.2rem;
-}
-
-/* .fa-tasks:hover::before {
-    font-family: "Font Awesome 5 Free"; 
-	font-weight: 400;
-	content: "\f0c7";
-}
-
-.fa-list-ol:hover::before {
-    font-family: "Font Awesome 5 Free"; 
-	font-weight: 400;
-	content: "\f0c7";
-} */
-
-/* #task {
-    margin-top: 1px;
-} */
-.widget-subheading {
-    color: #858a8e;
-    font-size: 10px;
 }
 
 .card-header.card-header-tab .card-header-title {
@@ -312,14 +272,6 @@ nav span.trash button {
     display: flex;
     align-items: center;
     white-space: nowrap;
-}
-
-#plus-add-item {
-    /* position: absolute;
-    right: 90px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: all 1s; */
 }
 
 #plus-add-item:hover {
@@ -345,15 +297,17 @@ nav span.trash button {
     background-color: var(--0);
 }
 
-.add-list{
+.add-list {
     transition: all 0.5s;
 }
+
 .add-list li {
     display: flex;
     align-items: center;
     position: relative;
     width: 80% !important;
 }
+
 .list-group-item {
     position: relative;
     display: block;
@@ -409,17 +363,19 @@ nav span.trash button {
     margin-left: auto;
 }
 
-.widget-content-right{
+.widget-content-right {
     position: absolute;
     right: -18px;
 }
-.widget-content-left{
+
+.widget-content-left {
     word-break: break-all;
-   
 }
-.widget-content-left:hover{
+
+.widget-content-left:hover {
     cursor: pointer;
 }
+
 .btn:not(:disabled):not(.disabled) {
     cursor: pointer;
 }
@@ -467,7 +423,6 @@ nav span.trash button {
     margin-left: 3px;
     position: relative;
     display: inline-block;
-
 }
 
 .task-check {
@@ -479,7 +434,7 @@ nav span.trash button {
     text-decoration: line-through;
 }
 
-/* radio button color */
+/* radio button colors */
 .color-1 {
     background-color: var(--l1);
 }
@@ -491,6 +446,7 @@ nav span.trash button {
 .color-3 {
     background-color: var(--l3);
 }
+
 .color-4 {
     background-color: rgba(255, 255, 255, 0.016);
 }
@@ -504,18 +460,8 @@ nav span.trash button {
     font-weight: 700
 }
 
-;
-}
-
 .visible {
     opacity: 0;
-}
-
-.task {
-    /* position: relative;
-    top:10px;
-    right: 10px;
-    width:40px */
 }
 
 .fa-list-ol {
@@ -523,20 +469,23 @@ nav span.trash button {
     margin-right: 5px;
 }
 
-@media screen and (min-width:992px) {
-    /* #add-links {
-        min-height: 500px;
-    } */
+/* scroolbar setting */
+::-webkit-scrollbar {
+    width: 6px;
+    background: transparent;
+    border-radius: 3px;
+    height: 5px;
+}
 
-    .card {
-        height: 600px;
-    }
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .5);
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+}
 
-    .scroll-area-sm {
-        height: 547px;
-
-    }
-
+::-webkit-scrollbar-track {
+    box-shadow: none;
+    background-color: transparent;
 }
 
 .options i {
@@ -557,48 +506,56 @@ nav span.trash button {
     z-index: 90000 !important;
 }
 
+@media screen and (min-width:992px) {
+
+    .card {
+        height: 600px;
+    }
+
+    .scroll-area-sm {
+        height: 547px;
+    }
+}
+
 @media screen and (max-width:992px) {
-    /* #add-links {
+
+    nav {
         height: 100%;
-    } */
-    nav{
-        height:100%;
         max-height: 400px;
     }
 }
 
 @media screen and (max-width:600px) {
+    
     main-container {
         width: 500px;
     }
-    nav{
-        height:100%;
+
+    nav {
+        height: 100%;
         max-height: 300px;
     }
 
     nav,
     .nav-container {
-        width:100%;
+        width: 100%;
         margin: auto;
     }
-
-    .card-container,
-    .card {
-        /* width: 80vw !important; */
-    }
-
 }
 
 @media screen and (max-width:375px) {
+    
     main-container {
         width: 360px;
         display: flex;
         justify-content: center;
         margin: auto;
     }
+
     .row {
         margin-right: 5px !important;
     }
+
     nav,
     .nav-container {
         width: 100%;
@@ -610,21 +567,5 @@ nav span.trash button {
         width: 360px !important;
         margin: auto;
     }
-
 }
-::-webkit-scrollbar {
-    width: 6px;
-    background: transparent;
-    border-radius: 3px;
-    height: 5px;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background-color: rgba(0,0,0,.5);
-    -webkit-border-radius: 6px;
-    border-radius: 6px;
-  }
-  ::-webkit-scrollbar-track {
-    box-shadow: none;
-    background-color: transparent;
-  }
+

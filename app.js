@@ -382,7 +382,7 @@ function saveJson() {
 }
 
 function getUploadJson() {
-  $("#json-yukle").modal("show");
+  $("#json-upload").modal("show");
   $("#options").modal("hide");
  
 }
@@ -404,7 +404,7 @@ function upLoadJson() {
   getCategories();
   allTasks();
   getId("addjson").value = "";
-  $("#json-yukle").modal("hide");
+  $("#json-upload").modal("hide");
 }
 
 $(".modal").on("shown.bs.modal", function () {
