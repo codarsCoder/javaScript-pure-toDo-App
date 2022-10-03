@@ -117,14 +117,14 @@ function getCategories() {
             <button id="${i}"  onclick="sortItem('${cName}')" class="s-link">${cName}</button>   
             <span class="tasks-num">${i + 1}</span>
             <span class="tasks"><p>Tasks ${count}</p></span>
-            <span  class="trash "><button onclick='deleteCategory("${i}")'><i class="delete-category fas fa-trash-alt" aria-hidden="true"></i></button></span>
+            <span  class="trash "><button onclick='deleteCategory("${i}")'><i class="delete-category fa fa-trash" aria-hidden="true"></i></button></span>
         </div>`;
   }
 }
 
 // Delete category
 function deleteCategory(id) {
-  const warnng = confirm("are you sure you want to delete?");
+  const warnng = confirm("Are you sure you want to delete?");
   if (warnng) {
     const cList = getITem("toDos");
     const deleted = cList[id];
@@ -309,7 +309,7 @@ function sortItem(cName) {
 
 // delete list item
 function deleteList(item) {
-  let ok = confirm("are you sure you want to delete?");
+  let ok = confirm("Do you want to delete?");
   if (ok) {
     const pieces = item.split("--", 2);
     let todo = getITem(pieces[1]);

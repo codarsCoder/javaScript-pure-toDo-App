@@ -5,15 +5,15 @@
     /* #F2DF3A;*/
     --fourth: #87A2FB;
     /*#F6F6F6; */
-    --l1: #f7b924;
-    --l2: #007bff;
-    --l3: #18ac3a;
+    --l1: #f1cb6e;
+    --l2: #79b2ee;
+    --l3: #59e450;
     --shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
-    --0: #a7d7eb;
+    --0: #d0d6d9;
     --1: #bbbbc0;
     /* BODY */
-    --2: #ffbe0b;
-    --3: #fb5607;
+    --2: #999895 ;
+    --3: #6b6967;
     --4: #219ebc;
 }
 
@@ -33,6 +33,12 @@ body {
     line-height: 1.5;
     text-align: left;
     background-color: var(--1);
+    background-image: url(./bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
 }
 
 a {
@@ -136,6 +142,7 @@ nav .links button {
     border: none;
     background-color: rgba(0, 0, 0, 0);
     transition: all 1s;
+    color: #fcfcfc;
 }
 
 nav .links button:hover {
@@ -163,11 +170,11 @@ nav span.tasks-num {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    color: white;
+    color: #ea0606;
     font-size: 0.8rem;
     font-weight: 600;
     text-align: center;
-    background-color: var(--4);
+    background-color: white;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -181,7 +188,7 @@ nav span.tasks {
     font-size: 0.6rem;
     font-weight: 400;
     border-radius: 0px 100px 5px 5px;
-    background-color: #219ebc;
+    background-color: #0078aa;
     color: white;
     text-align: left;
     padding-left: 3px;
