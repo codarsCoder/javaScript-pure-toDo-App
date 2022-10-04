@@ -283,7 +283,9 @@ function sortItem(cName) {
     getId(
       "add-list"
     ).innerHTML = `<h2 style="margin:auto">list ${cName} is empty</h2>`;
-  }  let bul = document.querySelector(".line-through").parentElement.parentElement.parentElement.parentElement.style.borderTop = "thick solid #0078aa";
+  }  let todoBorderTop = document.querySelector(".line-through");
+    todoBorderTop ? todoBorderTop.parentElement.parentElement.parentElement.parentElement.style.borderTop = "thick solid #0078aa" : null;
+
 }
 
 // delete list item
