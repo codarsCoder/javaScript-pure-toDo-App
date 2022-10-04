@@ -94,7 +94,7 @@ function getCategories() {
     addLinks.innerHTML += `<div class="links">
             <button id="${i}"  onclick="sortItem('${cName}')" class="s-link">${cName}</button>   
             <span class="tasks-num">${i + 1}</span>
-            <span class="tasks"><p>Tasks ${count}</p></span>
+            <span class="tasks"><p>${count} Tasks </p></span>
             <span  class="trash "><button onclick='deleteCategory("${i}")'><i class="delete-category fa fa-trash" aria-hidden="true"></i></button></span>
         </div>`;
   }
@@ -283,7 +283,7 @@ function sortItem(cName) {
     getId(
       "add-list"
     ).innerHTML = `<h2 style="margin:auto">list ${cName} is empty</h2>`;
-  }
+  }  let bul = document.querySelector(".line-through").parentElement.parentElement.parentElement.parentElement.style.borderTop = "thick solid #0078aa";
 }
 
 // delete list item
@@ -499,3 +499,5 @@ function getDefaultTodos(){
 $(".modal").on("shown.bs.modal", function () {
   $(this).find("[autofocus]").focus();
 });
+
+
