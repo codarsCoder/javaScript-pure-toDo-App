@@ -45,8 +45,10 @@ function counter(key) {
   return Array.from(JSON.parse(localStorage.getItem(key))).length;
 }
 
-function message(message) {
-  alert(message);
+function message(message , type) {
+  let alertM = getId("alertMessage");
+  alertM.style.display = "none";
+  getId("messageText").innerText +=("kkkkkkkkkkk")
 }
 
 // ****CATEGORIES****
@@ -237,7 +239,7 @@ function sortItem(cName) {
   let itemList = getId("add-list");
   !allList
     ? (itemList.innerHTML = "")
-    : (itemList.innerHTML += `<div  style="border-bottom:2px dotted blue;margin:5px auto;font-weight:700 ;font-size:25px">${cName}${!list.length ? ` :(is empty)` : ""
+    : (itemList.innerHTML += `<div  style="border-bottom:2px dotted blue;margin:5px auto;font-weight:700 ;font-size:25px">${cName}${!list.length ? ` (is empty)` : ""
       }</div>`);
   const todoList = getITem(cName) || [];
   list.forEach((item) => {
@@ -248,7 +250,7 @@ function sortItem(cName) {
     const color = colors[todoList[item].color];
     let importan = "";
     importance == "important"
-      ? (importan = '<div class="badge badge-danger ml-2"><i class="fas fa-star"></i></div>')
+      ? (importan = '<div class="badge badge-danger ml-2 star"><i class="fas fa-star "></i></div>')
       : (importan = "");
     itemList.innerHTML += ` 
                     <li id="${item}" data="${completed ? 2 : 1

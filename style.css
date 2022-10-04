@@ -254,10 +254,16 @@ nav span.trash button {
 }
 
 .card-header i {
+    font-size: 1.3rem;
     cursor: pointer;
     transition: all 0.5s;
 }
+.star{
+    position: relative  !important;
+    top:-2px;
+    margin-right: 3px;
 
+}
 .card-header i:hover {
     color: var(--l2)
 }
@@ -297,7 +303,7 @@ nav span.trash button {
 }
 
 .scroll-area-sm {
-   height: calc(100vh - 50px);
+   height: calc(100vh - 56px);
     overflow-x: hidden;
     background-color: var(--l2);
 }
@@ -531,7 +537,10 @@ nav span.trash button {
     .list {
         margin-left: 220px;
     }
- 
+    #task-name {
+        font-size: 14px !important;
+
+    }
 }
 
 @media screen and (max-width:375px) {
