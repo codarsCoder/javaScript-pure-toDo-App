@@ -8,7 +8,7 @@
 ![image](https://github.com/codarsCoder/javaScript-pure-toDo-App/blob/main/todo-app.gif)
 
 ### Visualization of the Website
-![image](https://user-images.githubusercontent.com/106506769/192145511-5513a754-75a3-4c49-b28e-a31c25199a03.png)
+![image](https://user-images.githubusercontent.com/109487576/193803007-e8fe3698-c652-4fb3-aca1-dd96e1342cab.png)
 
 
 ## Project Skeleton 
@@ -25,12 +25,19 @@
 ## Project Description 
 
 --Vanillia js implemented in the Project
+
 --Localstroge used as database
+
 --Making backup and data uploading added in JSON format
+
 --Added category system
+
 --Color groups and importance mark added for todo list
+
 --Marked as done todos and colored groups are sorted together
+
 --All todos can list together
+
 
 
 
