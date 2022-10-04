@@ -2,6 +2,7 @@ window.onload = function () {
   getDefaultTodos();
   getCategories();
   allTasks();
+  allTasksList()
 };
 
 // General Functions
@@ -171,7 +172,6 @@ let allList = 0;
 function sortItem(cName) {
   let list = getITem(cName) || [];
   getId("ctgry-name").value = cName;
-  getId("add-task").classList.remove("d-none");
   getId("plus-add-item").classList.remove("d-none");
   getId("task-name").innerText = allList ? "All Categories" : cName;
   let colors1 = list.reduce(
@@ -353,7 +353,6 @@ async function allTasksList() {
   todos.forEach((todo) => {
     sortItem(todo);
   });
-  getId("add-task").classList.add("d-none");
   getId("plus-add-item").classList.add("d-none");
   getId("ctgry-name").value = "";
   allList = 0; 

@@ -29,11 +29,6 @@
 }
 
 html{
-    background-image: url(./bg.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
 }
 
 body {
@@ -42,7 +37,8 @@ body {
     font-weight: 400;
     line-height: 1.5;
     text-align: left;
-    background-color: transparent !important;
+    background-color:#373737;
+  
 }
 
 a {
@@ -51,23 +47,23 @@ a {
 
 i {
     font-style: italic;
+    cursor: pointer;
 }
 
 .container {
-    margin-top: 20px;
+    margin-top: 5px;
 }
 
 nav {
-    height: 600px;
-    background-color: var(--0);
-    box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
+    height: 100vh;
+    width: 230px;
+    background-color: var(--3);
+    box-shadow: 0 0.46875rem 2.1875rem rgb(4 9 20 / 3%), 0 0.9375rem 1.40625rem rgb(4 9 20 / 3%), 0 0.25rem 0.53125rem rgb(4 9 20 / 5%), 0 0.125rem 0.1875rem rgb(4 9 20 / 3%);
     border-width: 0;
-    border-radius: 12px 14px 12px;
     margin-top: 3px;
     overflow-y: auto;
     overflow-x: hidden;
     display: block !important;
-
 }
 
 nav .nav-header {
@@ -78,11 +74,10 @@ nav .nav-header {
     align-items: center;
     padding: 20px 10px;
     margin-bottom: 2px;
-    background-color: var(--firs);
+    background-color: var(--3);
     color: white;
     font-size: 1.7rem;
     position: relative;
-    border-radius: 11px 0px 82px;
 }
 
 nav .nav-header .fa-plus {
@@ -92,14 +87,11 @@ nav .nav-header .fa-plus {
     cursor: pointer;
     transition: color 0.6s, font-size 0.3s;
     position: absolute;
-    color: var(--firs)
+    color:white
 }
 
 nav .nav-header .fa-plus:hover {
-    font-size: 1.7rem;
-    margin-top: 15px;
-    cursor: pointer;
-    color: var(--3)
+    color: var(--l2)
 }
 
 /* i setting */
@@ -112,7 +104,7 @@ nav .nav-header .fa-plus:hover {
 }
 
 .opt:hover {
-    font-size: 1.2rem !important;
+    color: var(--l2) !important
 }
 
 nav #add-links {
@@ -137,7 +129,6 @@ nav .links {
     height: 62px;
     margin-bottom: 5px;
     box-shadow: var(--shadow);
-    border-radius: 25px 0px 0px;
 }
 
 nav .links button {
@@ -154,11 +145,11 @@ nav .links button:hover {
 
 
 nav .links:nth-of-type(odd) {
-    background: var(--2);
+    background: var(--l2);
 }
 
 nav .links:nth-of-type(even) {
-    background: var(--3);
+    background: var(--l1);
 }
 
 nav span.tasks,
@@ -221,7 +212,6 @@ nav span.trash i {
 
 nav span.trash i:hover {
     color: white(0, 13, 255);
-    font-size: 1rem;
     cursor: pointer;
 }
 
@@ -251,9 +241,8 @@ nav span.trash button {
     padding-bottom: 0;
     padding-right: 1rem;
     height: 3.5rem;
-    background-color: #0078aa;
+    background-color:var(--3);
     color: white;
-    border-radius: 0px 0px 26px !important;
 }
 
 .card-header i {
@@ -262,8 +251,7 @@ nav span.trash button {
 }
 
 .card-header i:hover {
-    color: var(--3);
-    font-size: 1.2rem;
+    color: var(--l2)
 }
 
 .card-header.card-header-tab .card-header-title {
@@ -284,7 +272,7 @@ nav span.trash button {
 }
 
 #plus-add-item:hover {
-    color: var(--l1)
+    color: var(--l2)
 }
 
 #plus-add-item:active {
@@ -301,9 +289,9 @@ nav span.trash button {
 }
 
 .scroll-area-sm {
-    height: 380px;
+   height: calc(100vh - 50px);
     overflow-x: hidden;
-    background-color: var(--0);
+    background-color: var(--l2);
 }
 
 .add-list {
@@ -503,8 +491,7 @@ nav span.trash button {
 }
 
 .options i:hover {
-    font-size: 1.5rem;
-    color: var(--firs);
+    color: var(--l2)
 }
 
 .z-index-4 {
@@ -515,66 +502,31 @@ nav span.trash button {
     z-index: 90000 !important;
 }
 
+.fixed-top {
+    z-index: 0 !important;
+}
+.list { 
+    width: calc(100vw-250px);
+    margin-left:245px;
+    margin-right: 5px;
+    margin-top:3px;
+    }
+
 @media screen and (min-width:992px) {
 
-    .card {
-        height: 600px;
-    }
-
-    .scroll-area-sm {
-        height: 547px;
-    }
+ 
 }
 
 @media screen and (max-width:992px) {
 
-    nav {
-        height: 100%;
-        max-height: 400px;
-    }
 }
 
 @media screen and (max-width:600px) {
-    
-    main-container {
-        width: 500px;
-    }
-
-    nav {
-        height: 100%;
-        max-height: 300px;
-    }
-
-    nav,
-    .nav-container {
-        width: 100%;
-        margin: auto;
-    }
+ 
 }
 
 @media screen and (max-width:375px) {
     
-    main-container {
-        width: 360px;
-        display: flex;
-        justify-content: center;
-        margin: auto;
-    }
 
-    .row {
-        margin-right: 5px !important;
-    }
-
-    nav,
-    .nav-container {
-        width: 100%;
-        margin: 10px auto;
-    }
-
-    .card-container,
-    .card {
-        width: 360px !important;
-        margin: auto;
-    }
 }
 

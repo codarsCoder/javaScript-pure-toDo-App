@@ -6,31 +6,30 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
   <title>ToDo App</title>
 </head>
 
 <body>
-  <!-- Add task list -->
-  <div class="continer d-flex justify-content-center container main-container">
-    <div class="row d-flex justify-content-center container">
-      <div class="col-12 col-md-4 col-lg-3 nav-container ">
-        <nav class="nav">
-          <div class="nav-header ">Categories
-            <i class="fas fa-cog opt text-white" data-target="#options" data-toggle="modal"></i>
-            <i id="categori-add" data-target="#exampleModal" data-toggle="modal" class=" fa fa-plus "
-              aria-hidden="true">
-            </i>
-          </div>
-          <div id="add-links">
-          </div>
-        </nav>
+  <div class="fixed-top mb-md-5 ml-2  ">
+    <nav class="nav">
+      <div class="nav-header ">Categories
+        <i class="fas fa-cog opt text-white" data-target="#options" data-toggle="modal"></i>
+        <i id="categori-add" data-target="#exampleModal" data-toggle="modal" class=" fa fa-plus "
+          aria-hidden="true">
+        </i>
       </div>
-      <div class="card-container col-md-8 col-lg-9 list mt-1">
+      <div id="add-links">
+      </div>
+    </nav>
+  </div>
+  <!-- Add task list -->
+
+    
+      <div class="card-container  list ">
         <div class="card-hover-shadow-2x mb-3 card">
-          <div style="cursor: pointer"
+          <div
             class="card-header-tab card-header d-flex justify-content-between align-items-center ">
             <div onclick="allTasksList()"
               class="card-header-title font-size-lg text-capitalize font-weight-normal d-flex align-items-center "><i
@@ -50,12 +49,10 @@
               </div>
             </perfect-scrollbar>
           </div>
-          <button id="add-task" class="btn btn-primary d-none" data-target="#add-item" data-toggle="modal">Add
-            Task</button>
         </div>
       </div>
-    </div>
-  </div>
+
+
   <!-- jSON Add task  modal -->
   <div class="modal fade z-index-4" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
