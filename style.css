@@ -221,6 +221,14 @@ nav span.trash button {
     background-color: rgba(0, 0, 0, 0);
 }
 
+.list { 
+    min-width: 300px;
+    width: calc(100vw-250px);
+    margin-left:245px;
+    margin-right: 5px;
+    margin-top:3px;
+    }
+
 .card {
     box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
     border-width: 0;
@@ -505,12 +513,7 @@ nav span.trash button {
 .fixed-top {
     z-index: 0 !important;
 }
-.list { 
-    width: calc(100vw-250px);
-    margin-left:245px;
-    margin-right: 5px;
-    margin-top:3px;
-    }
+
 
 @media screen and (min-width:992px) {
 
@@ -521,7 +524,13 @@ nav span.trash button {
 
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width:620px) {
+    .nav {
+        width: 210px;
+    }
+    .list {
+        margin-left: 220px;
+    }
  
 }
 
