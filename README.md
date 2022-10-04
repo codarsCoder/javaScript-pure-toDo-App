@@ -5,7 +5,7 @@
 ### Check The Live Website :arrow_right: [Live Website](https://codarscoder.github.io/javaScript-pure-toDo-App/)
 
 ### Animation of the Website
-![image](https://codarscoder.github.io/javaScript-pure-toDo-App/blob/main/todo-app.gif)
+![image](https://github.com/codarsCoder/javaScript-pure-toDo-App/blob/main/todo-app.gif)
 
 ### Visualization of the Website
 ![image](https://user-images.githubusercontent.com/106506769/192145511-5513a754-75a3-4c49-b28e-a31c25199a03.png)
