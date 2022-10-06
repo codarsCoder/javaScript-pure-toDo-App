@@ -1,63 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
-  <title>ToDo App</title>
-</head>
-
-<body>
- <div class="fixed-top nav-wrapper mb-md-5 ml-2  ">  <!-- nav-wrapper added for responive -->
-    <nav class="nav">
-      <div class="nav-header ">Categories
-        <i class="fas fa-cog opt text-white" data-target="#options" data-toggle="modal"></i>
-        <i id="categori-add" data-target="#exampleModal" data-toggle="modal" class=" fa fa-plus "
-          aria-hidden="true">
-        </i>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <title>ToDo App</title>
+  </head>
+  <body> <div class="container">
+    <header>
+      <h1 id="ctgry-name" class="title"></h1>
+      <span class="allTasks">All tasks <span id="task">0</span></span>
+    </header>
+    <aside>
+      <label class="mobile-icon" for="mobile-check"><i class="fa-solid fa-bars"></i><input id="mobile-check"type="checkbox" name="" id=""></label>
+      <h1 class="title">CATEGORIES</h1>
+      <h5 class="add-new-category"><i id="categori-add" data-target="#exampleModal" data-toggle="modal" class="fa-solid fa-plus"></i></h5>
+      <ul id="addCategory" class="addCategory">
+      </ul>
+      <div class="aside-footer">
+        <i onclick="getUploadJson()" class="fa-solid fa-upload"></i>
+        <i onclick="saveJson()" class="fa-solid fa-floppy-disk"></i>
       </div>
-      <div id="add-links">
+    </aside>
+    <main>
+      <div class="todo-list">
+        <h1 class="title">
+          <span id="task-name"></span>
+          <span class="todoHeader">Todo List </span>
+          <i id="plus-add-item"  data-target="#add-item"
+          data-toggle="modal" class="fa-solid fa-plus v-none"></i>
+        </h1>
+        <ul id="add-list" class="add-list">
+          
+        </ul>
       </div>
-    </nav>
+      <div class="todo-list">
+        <h1 class="title">I have done</h1>
+        <ul id="add-list-done"class="add-list">
+        </ul>
+      </div>
+    </main>
   </div>
-  <!-- Add task list -->
 
-      <div class="card-container  list ">
-        <div class="card-hover-shadow-2x mb-3 card">
-          <div
-            class="card-header-tab card-header d-flex justify-content-between align-items-center ">
-            <div onclick="allTasksList()"
-              class="card-header-title font-size-lg text-capitalize font-weight-normal d-flex align-items-center "><i
-                class="fa fa-tasks"></i>&nbsp;Task Lists:</div>
-            <div class="card-header-middle"><span style="font-size: 1.3rem" id="task-name"></span></div>
-            <div class="task d-flex align-items-center"><i id="plus-add-item" data-target="#add-item"
-                data-toggle="modal" class=" fa fa-plus d-none m-2" aria-hidden="true">
-              </i> All tasks &nbsp <span class="m-2" id="task"><strong></strong></span></div>
-          </div>
-          <div class="scroll-area-sm">
-            <perfect-scrollbar class="ps-show-limits">
-              <div style="position: static;" class="ps ps--active-y">
-                <div class="ps-content">
-                  <ul id="add-list" class="list-group list-group-flush">
-                  </ul>
-                </div>
-              </div>
-            </perfect-scrollbar>
-          </div>
-        </div>
-      </div>
-
-
-  <!-- jSON Add task  modal -->
-  <div class="modal fade z-index-4" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
+       
+      <!-- Add  task category modal -->
+      <div class="modal fade z-index-4" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">New Category</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -78,7 +80,7 @@
       </div>
     </div>
   </div>
-  <!-- Add  task category modal -->
+  <!-- jSON Add task  modal -->
   <div class="modal fade" id="json-upload" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabell"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -119,8 +121,8 @@
         <div class="modal-body">
           <form>
             <div class="form-group">
-              <label for="ctgry-name" class="col-form-label">Category Name:</label>
-              <input type="text" class="form-control disabled aria-disabled=" true" id="ctgry-name" disabled>
+              <label for="catgry-name" class="col-form-label">Category Name:</label>
+              <input type="text" class="form-control disabled aria-disabled=" true" id="catgry-name" disabled>
             </div>
             <div class="form-group">
               <label for="item-name" class="col-form-label">Item Name:</label>
@@ -145,10 +147,6 @@
               <label style="background-color: var(--l3); width: 40px ; height: 40px; margin-left:10px" for="color3"
                 class="col-form-label"> </label>
               <input id="color3" type="radio" name="radios" class="form-control check" value="3">
-              <label
-                style="position:relative; bottom:15px; background-color: white; width: 40px ; height: 40px; margin-left:10px"
-                for="color4" class="col-form-label">Empty </label>
-              <input id="color4" type="radio" name="radios" class="form-control check" value="4">
             </div>
           </form>
         </div>
@@ -159,43 +157,15 @@
       </div>
     </div>
   </div>
-  <!-- Settings modal -->
-  <div class="modal fade z-index-3" id="options" tabindex="-1" role="dialog" aria-labelledby="optionsLabell"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="optionsLabell">Options</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="options d-flex justify-content-start">
-            <div class="text-center m-3"><i class="fas fa-upload m-2 d-block" onclick="getUploadJson()"
-                title="Upload saved json"></i><label for="">Upload</label></div>
-            <div class="text-center m-3"><i class="fa fa-save m-2 d-block" onclick="saveJson()"
-                title="Save tasks as json"></i>
-              <label for="">Save</label></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
+
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-  <script src="app.js"> </script>
-</body>
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script> 
+    <script src="./js/app.js"></script>
+  </body>
 </html>
-
-
-
