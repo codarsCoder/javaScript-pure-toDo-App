@@ -205,13 +205,13 @@ window.onload = function () {
           id="3"
           onclick="changeImportant('${item}--${cName}')"
           class="task-check imp"  ${importance == 'important' ? `checked` : ""}
-        />
+          title="important ?"/>
         <input
           type="checkbox"
           id="3"
           onclick="completeTask('${item}--${cName}')"
           class="task-check cmpl"  ${completed ? `checked` : ""}
-        />
+       title="compledet ?" />
         <i onclick='deleteList("${item}--${cName}")'  class="fa fa-trash"></i>
       </div>
       </li>
@@ -275,14 +275,14 @@ window.onload = function () {
         []
       );
       list = [
-        ...colors1_c.reverse(),
-        ...colors2_c.reverse(),
-        ...colors3_c.reverse(),
-        ...noColors_c.reverse(),
-        ...colors1.reverse(),
-        ...colors2.reverse(),
-        ...colors3.reverse(),
-        ...noColors.reverse(),
+        ...colors1_c,
+        ...colors2_c,
+        ...colors3_c,
+        ...noColors_c,
+        ...colors1,
+        ...colors2,
+        ...colors3,
+        ...noColors,
       ];
       return list
   } 
