@@ -346,6 +346,10 @@ input[type="checkbox"].cmpl:checked:after {
     margin-left : -310px
 
   }
+  aside h1.title {
+    font-size: 2rem;
+
+  }
   aside .addCategory .categoryItem {
     font-size: 0.8rem;
   }
