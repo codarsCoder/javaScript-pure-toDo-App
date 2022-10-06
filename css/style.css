@@ -95,7 +95,7 @@ aside .addCategory .categoryItem {
   cursor: pointer;
   font-size: 1.2rem;
   padding-right: 0.8rem;
-  gap: 1rem;
+  gap: 0.1rem;
 }
 aside .addCategory .categoryItem .category-link {
   width: 100%;
@@ -346,7 +346,13 @@ input[type="checkbox"].cmpl:checked:after {
     margin-left : -310px
 
   }
+  aside .addCategory .categoryItem {
+    font-size: 0.8rem;
+  }
 
+  aside .mobile-icon{
+    display: inherit;
+  }
   .mobile-active {
     margin-left : 0px
   }
@@ -359,8 +365,9 @@ input[type="checkbox"].cmpl:checked:after {
     left: 0;
     width: 100%;
   }
-  aside .mobile-icon{
-    display: inherit;
-  }
+  main .todo-list .title {
+    font-size: 1rem;
+    padding: 0.81rem;
+}
  }
 
