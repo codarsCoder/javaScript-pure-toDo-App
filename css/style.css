@@ -289,34 +289,35 @@ input[type="checkbox"]::after {
   height: 14px;
   background-color: white;
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  font-size: 14px;
+  font-weight: 900;
+  font-size: 14px;
  
+ 
+}
+input[type="checkbox"].imp::after {
+  content: "i";
+  background-color: rgb(195, 189, 189);
+  color: white;
+}
+input[type="checkbox"].cmpl::after {
+  content: "c";
+  background-color: rgb(195, 189, 189);
+  color: white;
+  font-size: 14px;
+  padding-bottom: 2px;
 }
 input[type="checkbox"].imp:checked:after {
   content: "i";
-  width:14px ;
-  height: 14px;
   background-color: #bb2124;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 14px;
-  font-weight: 900;
- 
 }
 input[type="checkbox"].cmpl:checked:after {
   content: "c";
-  width:14px ;
-  height: 14px;
-  padding-bottom: 2px;
   background-color: #bb2124;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 14px;
-  font-weight: 900;
- 
 }
 
 /* scroolbar setting */
