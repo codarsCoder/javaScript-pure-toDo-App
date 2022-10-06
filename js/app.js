@@ -54,8 +54,8 @@ window.onload = function () {
   
   function AddCategory() {
     const cName = noSpace(noHyphen(getId("category-name").value.toUpperCase()));
-    if (cName.length == 0 || cName.length > 20) {
-      message("min 1 max 20 character!");
+    if (cName.length == 0 || cName.length > 16) {
+      message("min 1 max 16 character!");
     } else {
       const cList = getITem("toDos") || [];
   
@@ -113,7 +113,9 @@ window.onload = function () {
       getCategories();
       allTasks();
       getId("add-list").innerText = "";
+      getId("catgry-name").value = "";
       getId("task-name").innerText = "";
+      getId("plus-add-item").classList.add("v-none");
       !cList.length ? delITem("toDos") : "";
     }
   }
