@@ -25,16 +25,17 @@ li {
   list-style: none;
 }
 body {
-  width: 100%;
-  height: 100vh;
+  /* width: 100%;
+  height: 100vh; */
   font-family: "Noto Sans TC", sans-serif;
   background-color: #d9d9d9;
-  color: #cccccc;
+
 }
 
 .container {
   display: flex;
   justify-content: center;
+    color: #cccccc;
 }
 header {
   background-color: #cbcbcb;
