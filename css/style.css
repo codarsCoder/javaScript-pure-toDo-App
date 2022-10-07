@@ -278,6 +278,7 @@ input[type="checkbox"]{
   color: white;
   width: 20px;
   height: 20px;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -287,7 +288,9 @@ input[type="checkbox"]::after {
   content: "";
   width:14px ;
   height: 14px;
-  background-color: white;
+  border-radius: 50%;
+  background-color: #5a5858;
+  color: white;
   position: absolute;
   display: flex;
   justify-content: center;
@@ -299,15 +302,17 @@ input[type="checkbox"]::after {
  
  
 }
+
+.test {
+  display:flex;
+  align-items:center;
+  margin-bottom:1rem;
+}
 input[type="checkbox"].imp::after {
   content: "i";
-  background-color: rgb(195, 189, 189);
-  color: white;
 }
 input[type="checkbox"].cmpl::after {
   content: "c";
-  background-color: rgb(195, 189, 189);
-  color: white;
   font-size: 14px;
   padding-bottom: 2px;
 }

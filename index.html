@@ -19,6 +19,61 @@
     <title>ToDo App</title>
   </head>
   <body> <div class="container">
+    
+  <!-- Add list item (task item) modal -->
+  <div class="modal fade" id="add-item" tabindex="-1" role="dialog" aria-labelledby="itemModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header position-relative">
+          <h5 class="modal-title d-block" id="itemModalLabel">New List İtem</h5>
+          <span class="add-ok visible" id="add-ok"></span>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="catgry-name" class="col-form-label">Category Name:</label>
+              <input type="text" class="form-control disabled aria-disabled=" true" id="catgry-name" disabled>
+            </div>
+            <div class="form-group">
+              <label for="item-name" class="col-form-label">Item Name:</label>
+              <input type="text" class="form-control" id="item-name" max="100" autofocus autocomplete="off">
+            </div>
+            <div class="form-group">
+              <label for="importance">Importance</label>
+              <select class="form-control" id="importance">
+                <option></option>
+                <option>important</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="" class="col-form-label">Select color:</label></div>
+              <div class="form-group">
+                <div class="test">
+                          <label style="background-color: var(--l1); width: 40px ; height: 40px; margin-left:10px;" for="color1" class="col-form-label"> </label>
+                          <input id="color1" type="radio" name="radios" class="form-control check" value="1">
+                </div>
+                 <div class="test">
+                    
+                          <label style="background-color: var(--l2); width: 40px ; height: 40px; margin-left:10px" for="color2" class="col-form-label"> </label>
+                          <input id="color2" type="radio" name="radios" class="form-control check" value="2" checked="">
+                 </div>
+                 <div class="test">
+                          <label style="background-color: var(--l3); width: 40px ; height: 40px; margin-left:10px" for="color3" class="col-form-label"> </label>
+                          <input id="color3" type="radio" name="radios" class="form-control check" value="3">
+                 </div>
+                        </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button id="item-add" onclick="addList()" type="button" class="btn btn-primary">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
     <header>
       <h1 id="ctgry-name" class="title"></h1>
       <span class="allTasks">All tasks <span id="task">0</span></span>
@@ -107,56 +162,6 @@
     </div>
   </div>
 
-  <!-- Add list item (task item) modal -->
-  <div class="modal fade" id="add-item" tabindex="-1" role="dialog" aria-labelledby="itemModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header position-relative">
-          <h5 class="modal-title d-block" id="itemModalLabel">New List İtem</h5>
-          <span class="add-ok visible" id="add-ok"></span>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="catgry-name" class="col-form-label">Category Name:</label>
-              <input type="text" class="form-control disabled aria-disabled=" true" id="catgry-name" disabled>
-            </div>
-            <div class="form-group">
-              <label for="item-name" class="col-form-label">Item Name:</label>
-              <input type="text" class="form-control" id="item-name" max="100" autofocus autocomplete="off">
-            </div>
-            <div class="form-group">
-              <label for="importance">Importance</label>
-              <select class="form-control" id="importance">
-                <option></option>
-                <option>important</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="" class="col-form-label">Select color:</label></div>
-            <div class="form-group">
-              <label style="background-color: var(--l1); width: 40px ; height: 40px; margin-left:10px;" for="color1"
-                class="col-form-label"> </label>
-              <input id="color1" type="radio" name="radios" class="form-control check" value="1" >
-              <label style="background-color: var(--l2); width: 40px ; height: 40px; margin-left:10px" for="color2"
-                class="col-form-label"> </label>
-              <input id="color2" type="radio" name="radios" class="form-control check" value="2" checked>
-              <label style="background-color: var(--l3); width: 40px ; height: 40px; margin-left:10px" for="color3"
-                class="col-form-label"> </label>
-              <input id="color3" type="radio" name="radios" class="form-control check" value="3">
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button id="item-add" onclick="addList()" type="button" class="btn btn-primary">Add</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
 
 
