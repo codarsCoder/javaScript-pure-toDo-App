@@ -238,7 +238,7 @@ main .todo-list .add-list .list-group-item .left-items {
 main .todo-list .add-list .list-group-item .left-items .task-check,
 main .todo-list .add-list .list-group-item .left-items .fa-trash {
   cursor: pointer;
-  padding: 0.5rem;
+  padding: 0.3rem;
   font-size: 18px;
 }
 main .todo-list .add-list .list-group-item .left-items .fa-trash {
@@ -274,7 +274,7 @@ main .todo-list .add-list .list-group-item .left-items .fa-trash:hover {
 }
 input[type="checkbox"]{
   appearance: none;
-  background-color: #219ebc;
+  background-color: transparent;
   color: white;
   width: 20px;
   height: 20px;
@@ -285,22 +285,36 @@ input[type="checkbox"]{
   position: relative;
 }
 input[type="checkbox"]::after {
-  content: "";
-  width:14px ;
-  height: 14px;
-  border-radius: 50%;
-  background-color: #5a5858;
-  color: white;
+  background-color: transparent;
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  font-size: 14px;
-  font-weight: 900;
-  font-size: 14px;
+  font-size: 20px;
+
  
  
+}
+
+input[type="checkbox"].cmpl::after {
+  font-family: "Font Awesome 6 Free"; 
+  font-weight: 400; 
+  content: "\f058";
+  color: rgb(227, 27, 27);
+}
+input[type="checkbox"].imp::after {
+  font-family: "Font Awesome 6 Free"; 
+  font-weight: 400; 
+  content: "\f005";
+  color: rgb(227, 27, 27);
+}
+input[type="checkbox"].cmpl:checked:after {
+  font-weight: 600;
+  
+}
+input[type="checkbox"].imp:checked:after {
+  font-weight: 600; 
 }
 
 .test {
@@ -308,23 +322,6 @@ input[type="checkbox"]::after {
   align-items:center;
   margin-bottom:1rem;
 }
-input[type="checkbox"].imp::after {
-  content: "i";
-}
-input[type="checkbox"].cmpl::after {
-  content: "c";
-  font-size: 14px;
-  padding-bottom: 2px;
-}
-input[type="checkbox"].imp:checked:after {
-  content: "i";
-  background-color: #bb2124;
-}
-input[type="checkbox"].cmpl:checked:after {
-  content: "c";
-  background-color: #bb2124;
-}
-
 /* scroolbar setting */
 ::-webkit-scrollbar {
   width: 6px;
