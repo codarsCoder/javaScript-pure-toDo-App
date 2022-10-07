@@ -22,10 +22,9 @@
 |----Pure javaScript ToDo App
 
         |----index.html  
-        |----style.css   
-        |----app.js
+        |----css > style.css   
+        |----js > app.js
         |----todo-app.gif
-        |----bg.jpg
         |----readme.md            
 
 ## Project Description 
