@@ -394,7 +394,6 @@ myFiles.addEventListener("change", function (e) {
   let filee = e.target.files[0];
   let filem = new FileReader();
   filem.onload = function () {
-    console.log(typeof JSON.parse(filem.result));
     upLoadJson(JSON.parse(filem.result))
   }
   filem.readAsText(filee)
