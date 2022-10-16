@@ -414,10 +414,6 @@ async function upLoadJson(data) {
       setITem("toDos", newTasks);
     }
   });
-  getCategories();
-  allTasks();
-  getId("addjson").value = "";
-  $("#json-upload").modal("hide");
   window.location.reload()
 }
 
