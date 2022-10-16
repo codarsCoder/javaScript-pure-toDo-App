@@ -95,7 +95,7 @@ function getCategories() {
     addLinks.innerHTML += `
       <li  class="categoryItem">
       <i onclick='deleteCategory("${i}")'  class="fa-solid fa-xmark"></i>
-      <div class="category-link" id="${i}"  onclick="sortItem('${cName}')"  class="task">${cName} <span class="tasks">${count}</span></div>
+      <div class="category-link" id="${i}"  onclick="sortItem('${cName}','${i}')"  class="task">${cName} <span class="tasks">${count}</span></div>
      
     </li> `;
   }
@@ -172,9 +172,8 @@ getId("item-name").addEventListener("keypress", (event) => {
 
 // get task item list
 
-function sortItem(cName) {
+function sortItem(cName,id) {
   let list = getITem(cName) || [];
-  console.log(cName, "l,st");
   getId("catgry-name").value = cName;
   getId("plus-add-item").classList.remove("v-none");
   getId("task-name").innerText = cName;
@@ -222,6 +221,7 @@ function sortItem(cName) {
 
   getCategories();
   allTasks();
+  colorMenu(id) // tıklanan kategorinin rengi
 }
 
 // colors group
@@ -508,7 +508,12 @@ $(".modal").on("shown.bs.modal", function () {
 });
 
 
-
+function colorMenu(id){
+  querySA(".categoryItem").forEach(item =>{
+    item.classList.remove("selected-color")
+  })
+  getId(id).parentElement.classList.add("selected-color") ; 
+}
 
 // sidebar menu slide
 document.getElementById("mobile-check").addEventListener("click", (e) => {
