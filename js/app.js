@@ -424,7 +424,7 @@ async function upLoadJson(data) {
 // Add default todo 
 function getDefaultTodos() {
   if (!getITem("toDos")) {
-    let question = confirm("Defaulr todos")
+    let question = confirm("Upload sample tasks ?")
     if (question === true) {
       //one
       setITem("toDos", ["SHOPPING"]);
